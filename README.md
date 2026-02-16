@@ -54,3 +54,91 @@ Desarrollado con ❤️ en Artigas/Salto, Uruguay por **NorthCode**.
 > En la descripción corta del repo (la que sale a la derecha en GitHub): Pon algo breve como: *"Comprehensive digital management ecosystem for veterinary clinics and livestock production. Built with React, FastAPI, and Flutter."*
 >
 > **Topics (Etiquetas):** Agregá etiquetas como `veterinary-software`, `react`, `fastapi`, `flutter`, `snig-uruguay`, `northcode`. Esto ayuda a que el repo se posicione mejor.
+
+
+### Estructura General del Proyecto
+
+```text
+/veterinaria-salto
+├── apps/
+│   ├── web-client/          # React (E-commerce y Portal Clientes)
+│   └── admin-app/           # Flutter (Gestión interna y Médica)
+├── services/
+│   └── api-backend/         # FastAPI
+├── shared/                  # Documentación, Assets globales, Prototipos Figma
+├── infra/
+│   ├── docker/              # Dockerfiles específicos y configs
+│   └── nginx/               # Configuración de proxy inverso
+├── docker-compose.yml       # Orquestador local
+└── README.md                # Documentación técnica centralizada
+```
+
+## Estructura de proyecto sugerida para web-client
+
+```text
+/apps/web-client/src
+├── assets/          # Estilos globales, imágenes de Salto/Vete
+├── components/      # UI Atoms/Molecules (Botones, Inputs reutilizables)
+├── config/          # Variables de entorno, instancias de Axios/Fetch
+├── features/        # LÓGICA POR MÓDULO (E-commerce, Turnos, Perfil)
+│   ├── shop/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   └── ShopPage.tsx
+│   └── appointments/
+├── hooks/           # Custom hooks globales
+├── store/           # Manejo de estado (Zustand o Context)
+└── App.tsx
+```
+
+# <!> Agregar la etructura sujerida
+
+Estrucutra intera de Proyecto web-client
+components/: Botones, inputs y UI atómica reutilizable.
+features/: Lógica de negocio pesada (ej: features/ecommerce, features/appointments).
+layout/: Navbar, Footer y contenedores principales.
+hooks/: Lógica compartida de React.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Estructura de poryecto sujerida para backend
+
+```text
+/services/api-backend/app
+├── api/             # Endpoints (v1, v2)
+│   └── v1/
+│       ├── endpoints/
+│       └── api.py
+├── core/            # Configuración, Seguridad (JWT), Constantes
+├── db/              # Sesión de Base de Datos y Migraciones
+├── models/          # Modelos de base de datos (SQLAlchemy/SQLModel)
+├── schemas/         # Pydantic models (Validación de datos)
+├── services/        # Lógica de negocio (Donde ocurre la "magia")
+└── main.py
+```
