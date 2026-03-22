@@ -1,0 +1,40 @@
+
+# .github/workflows/deploy.yml
+
+name: Deploy Web Client to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Se dispara cuando subís cambios a main
+    paths:
+      - 'apps/web-client/**' # Solo si cambia algo en la carpeta de la web
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: apps/web-client/package-lock.json
+
+      - name: Install and Build
+        run: |
+          cd apps/web-client
+          npm install
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: apps/web-client/dist # La carpeta que genera Vite
+          branch: gh-pages # GitHub Pages usará esta rama para servir los archivos

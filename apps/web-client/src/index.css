@@ -1,0 +1,12 @@
+/* /apps/web-client/src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aseguramos que el body ocupe toda la pantalla para poder centrar */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #212121; /* El fondo oscuro que querías */
+}
