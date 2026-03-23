@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 </style>
   <link rel="stylesheet" href="src/styles.css">
+  <script src="src/tarjetaProductos.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VetCore1</title>
@@ -34,7 +35,6 @@
       <img src="src/imgPresentacion.png" alt="Perro y gato felices" class="imgPresentacion">
   </div>
   <p class="listaProductos">Lista de Productos</p>
-  <div>
     <div class="productos">
       <div class="productosTitulo">
         <h3>Racion</h3>
@@ -43,9 +43,9 @@
         <p>Ver catálogo completo</p>
         <img class="flechaProductos" src="src/flecha.svg" alt="">
       </div>
-      <div>
-        <!-- añadir tarjetas -->
-      </div>
+    </div>
+    <div class="productosTarjetas">
+      <div id="contenedorRacion"></div>
     </div>
     <div class="productos">
       <div class="productosTitulo">
@@ -56,6 +56,9 @@
         <img class="flechaProductos" src="src/flecha.svg" alt="">
       </div>
     </div>
+        <div class="productosTarjetas">
+      <div id="contenedorAccesorios"></div>
+    </div>
     <div class="productos">
       <div class="productosTitulo">
         <h3>Medicamentos</h3>
@@ -64,12 +67,74 @@
         <p>Ver catálogo completo</p>
         <img class="flechaProductos" src="src/flecha.svg" alt="">
       </div>
-      <div>
-        <div class="tarjetaProductos">
+    </div>
+        <div class="productosTarjetas">
+      <div id="contenedorMedicamentos"></div>
+    </div>
+    <div class="MVV">
+      <div class="MVVTexto">
+        <h2>Mision</h2>
+        <p>Brindar atención veterinaria profesional, cálida y confiable, cuidando la salud y el bienestar de cada animal como parte fundamental de la vida de sus familias y de la producción responsable. Nos comprometemos a acompañar a cada mascota en todas las etapas de su vida, mediante tratamientos integrales, planes sanitarios, desparasitaciones y cirugías, incluyendo atención de emergencias. Al mismo tiempo, ofrecemos soluciones eficientes y basadas en el rigor profesional para animales de producción, contribuyendo al desarrollo y la sostenibilidad del sector agropecuario.</p>
+      </div>
+      <img src="src/imgMision.png" alt="">
+    </div>
+    <div class="MVV">
+      <img src="src/imgMision.png" alt="">
+      <div class="MVVTexto">
+        <h2>Vision</h2>
+        <p>Ser un referente en la medicina veterinaria, reconocido por la confianza, la calidad profesional y la cercanía con nuestros clientes. Aspiramos a consolidarnos como una clínica destacada en el cuidado de pequeños animales, sin dejar de aportar nuestra experiencia y eficiencia al servicio veterinario de grandes animales y producción, respaldados por años de trayectoria, formación constante y compromiso con la excelencia.</p>
+      </div>
 
+    </div>
+    <div class="MVV">
+      <div class="MVVTexto">
+        <h2>Valores</h2>
+        <p> <span>Compromiso con la vida</span> <br> Cuidamos cada animal con responsabilidad, vocación y respeto, entendiendo su importancia en la vida de las personas y en la producción. <br> <br>
+<span>Profesionalismo y experiencia</span> <br> Aplicamos conocimiento, criterio clínico y mejora continua, respaldados por años de trayectoria en el ámbito veterinario.
+Atención con calidez humana <br> Entendemos el vínculo emocional entre las personas y sus mascotas, brindando un trato cercano, empático y respetuoso. <br><br>
+<span>Responsabilidad y confianza</span> <br> Actuamos con honestidad, transparencia y ética, generando relaciones duraderas basadas en la confianza. <br>
+Eficiencia y seriedad profesional <br> Ofrecemos soluciones veterinarias confiables tanto en clínica de pequeños animales como en el ámbito de la producción, donde la precisión y la eficiencia son fundamentales.</p>
+      </div>
+      <img src="src/imgMision.png" alt="">
+    </div>
+    <div class="tarjetaDireccion">
+      <div class="tarjetaPresentacion">
+        <h3 class="acentoTarjeta tarjetaSeparador">¿Dónde estamos?</h3>
+        <p class="tarjetaMentira">Te esperamos en Salto con la mejor atención para tu mascota.</p>
+        <div class="tarjetaPadre">
+          <div class="iconoContainer">
+            <img class="tarjetaImagen" src="src/pointer.svg" alt="">
+          </div>
+          <div class="tarjetaInfo">
+            <p class="acentoTarjeta">Salto, Uruguay</p>
+            <p class="flavorTarjeta">Calle 1 N°5657</p>
+          </div>
+        </div>
+        <div class="tarjetaPadre">
+          <div class="iconoContainer">
+            <img class="tarjetaImagen" src="src/telefono.svg" alt="">
+          </div>
+          <div class="tarjetaInfo">
+            <p class="acentoTarjeta">092 444 510</p>
+            <p class="flavorTarjeta">Lunes a Sabado 09:00 a 19:00</p>
+          </div>
+        </div>
+        <div class="iconosPrueba">
+          <div class="iconoContainer sizeFix ">
+            <svg class="tarjetaImagen sizeFix flavorImagen" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+<path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+</svg>
+          </div>
+          <div class="iconoContainer sizeFix">
+<svg class="tarjetaImagen sizeFix flavorImagen" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
+</svg>
+          </div>
         </div>
       </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3405.8225168916!2d-57.906870999999995!3d-31.391457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIzJzI5LjMiUyA1N8KwNTQnMjQuNyJX!5e0!3m2!1sen!2suy!4v1774287344710!5m2!1sen!2suy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-  </div>
 </body>
 </html>
