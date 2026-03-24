@@ -4,6 +4,9 @@
 --acento: #fff;
 --fondo: #D8E7DF80;
 --fondoSecundario: #FFFFFF1A;
+--fondoClientes: #FFFFFF80;
+--fondoTarjetaClientes: #E5D3B14D;
+--iconosFooter: #E5D3B1CC;
 }
 *{
     font-family: "Inter", sans-serif;
@@ -41,6 +44,13 @@ h3{
   font-size: 36px;
   color: var(--primario);
   margin: 2rem;
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 4rem;
 }
 
 .presentacion{
@@ -323,4 +333,139 @@ p.acentoTarjeta{
 
 .flavorImagen{
   fill: var(--secundario);
+}
+
+.contenedorMapa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 2rem;
+  font-weight: 700;
+}
+
+.botonMapa{
+  background-color: #465238E5;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: absolute;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.iconoMapa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detallesMapa{
+  border-radius: 2rem;
+}
+
+.iconoUbicacion{
+  width: 30px;
+  height: 30px;
+}
+
+.contenedorClientes{
+  background-color: var(--fondoClientes);
+  margin: 4rem 2rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contenedorClientes > h2, .estrellas{
+  text-align: center;
+  color: var(--secundario);
+}
+
+.tarjetaClientes{
+  background-color: var(--fondoTarjetaClientes);
+  padding: 2rem;
+  border-radius: 2rem;
+  margin: 2rem 0;
+  border: 1px solid var(--secundario);
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#tarjetaClientes{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.clienteReviewContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clienteIcono{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 1rem 0 2rem;
+  border: 1px solid var(--secundario);
+}
+
+.clientePerfil{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.clienteReview{
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.clienteDueño{
+  font-weight: 400;
+  color: var(--secundario);
+  font-size: 14px;
+}
+
+.tarjetaClientesContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.bordeIcono{
+  fill: var(--iconosFooter);
+  border: 1px solid var(--iconosFooter);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 1rem;
+}
+
+.logoFooter{
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+.logoFooter > img{
+  margin-right: 1rem;
+}
+
+.logoFooterTexto{
+  color: var(--iconosFooter);
+}
+
+.spanFooter{
+   color: #914122 !important;
 }
