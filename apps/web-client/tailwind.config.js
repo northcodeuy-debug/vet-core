@@ -10,10 +10,18 @@ export default {
     extend: {
       colors: {
         vete: {
+          // Por lo que se es para el menu cartel de la web
           bg: '#F1F7F4',
-          primary: '#2D6A4F',
-          dark: '#1B4332',
+
+          // Colores para la web
+          primary: '#aaca50',    // Verde claro
+          dark: '#1b4332',       // Verde oscuro (fondo)
+          soft: '#D8E7DF',       // Fondo tarjetas
+          accent: '#914122',     // Marrón footer        
         }
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       }
     },
   },
