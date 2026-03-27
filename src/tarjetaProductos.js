@@ -1,3 +1,4 @@
+// src/tarjetaProductos.js
 
 function crearCard(producto) {
   return `

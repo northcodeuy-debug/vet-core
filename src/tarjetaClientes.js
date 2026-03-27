@@ -1,3 +1,5 @@
+// src/tarjetaClientes.js
+
 function crearTarjetaClientes(review){
     return `<div class="tarjetaClientes">
       <div class="clienteReviewContainer">
