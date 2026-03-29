@@ -4,7 +4,8 @@
 
 export const products = {
   racion: [
-    { id: 1, title: "Alimento Premium Adulto", desc: "Nutrición balanceada 15kg", price: 2450, img: "/src/assets/product.png" },
+    { 
+      id: 1, title: "Alimento Premium Adulto", desc: "Nutrición balanceada 15kg", price: 2450, img: "/src/assets/product.png" },
     // ... más productos
   ],
   accesorios: [

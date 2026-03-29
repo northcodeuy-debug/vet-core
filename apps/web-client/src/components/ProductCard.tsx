@@ -2,7 +2,17 @@
 import { ShoppingCart, MessageCircle } from 'lucide-react';
 
 interface Props { title: string; desc: string; price: number; img: string; }
-
+/**
+ * Componente de UI para representar una tarjeta de producto en el catálogo.
+ * 
+ * @param {string} title - El nombre comercial del producto.
+ * @param {string} desc - Una descripción breve o especificación (ej: peso, tamaño).
+ * @param {number} price - El valor numérico del producto.
+ * @param {string} img - La ruta de la imagen (debe apuntar a /public o ser un asset importado).
+ * 
+ * @returns {JSX.Element} Una tarjeta con diseño responsivo, formateo de moneda local 
+ * e iconos de acción para carrito y WhatsApp.
+ */
 export const ProductCard = ({ title, desc, price, img }: Props) => (
   <div className="bg-vete-soft/50 p-6 rounded-[2rem] flex flex-col gap-2 min-w-[280px]">
     <img src={img} alt={title} className="rounded-2xl w-full h-48 object-cover" />
