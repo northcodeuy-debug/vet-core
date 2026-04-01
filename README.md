@@ -20,7 +20,7 @@ Este repositorio contiene el núcleo del sistema, diseñado como una solución *
 
 ### Fase 3: Gestión Clínica & Compliance MGAP
 - **Historia Clínica Digital**: Registro cronológico detallado y trazabilidad sanitaria.
-- **Módulo de Producción**: Gestión por predio (DICOSE) y seguimiento de patologías en rodeos.
+- **Módulo de Producción**: Gestión por pred io (DICOSE) y seguimiento de patologías en rodeos.
 - **Compliance DILAVE/SNIG**: Registro automatizado de específicos y generación de reportes ministeriales.
 
 ## 🛠 Stack Tecnológico
