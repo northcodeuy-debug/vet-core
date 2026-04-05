@@ -12,7 +12,10 @@ RUN npm run build
 # ETAPA 2: Servidor Nginx liviano
 FROM nginx:alpine
 # Vite genera los archivos en /dist
-COPY --from=build-step /dist /usr/share/nginx/html
+
+# COPY --from=build-step /dist /usr/share/nginx/html
+COPY --from=build-step /app/dist /usr/share/nginx/html
+
 
 # SOLUCIÓN AL ERROR 404: Configuramos Nginx para que siempre mande al index.html
 # Esto permite que rutas como /revision funcionen perfecto
