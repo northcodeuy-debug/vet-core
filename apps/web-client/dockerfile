@@ -2,7 +2,9 @@
 
 
 # ETAPA 1: Construcción
-FROM node:18-alpine AS build-step
+FROM node:22-alpine AS build-step  
+# FROM node:18-alpine AS build-step # <!> Para sacar 
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
