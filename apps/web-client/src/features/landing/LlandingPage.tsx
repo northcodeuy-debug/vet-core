@@ -3,7 +3,7 @@ import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
 
 
-import {  Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 
 // <!DMI> Header de la web
@@ -131,10 +131,10 @@ const InfoSection = ({ title, children, image, reversed = false }: { title: stri
       </div>
     </div>
     <div className="w-full md:w-1/2">
-      <img 
-        src={image} 
-        alt={title} 
-        className="w-full h-[450px] object-cover rounded-[3rem] shadow-2xl border-2 border-vete-primary/10" 
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-[450px] object-cover rounded-[3rem] shadow-2xl border-2 border-vete-primary/10"
       />
     </div>
   </section>
@@ -144,64 +144,64 @@ const AboutSection = () => {
   return (
     <div className="bg-white/5">
       {/* Misión */}
-      <InfoSection 
-        title="Misión" 
+      <InfoSection
+        title="Misión"
         image="/images/branding/Mision.png"
       >
         <p>
-          Brindar atención <strong className="text-vete-primary">veterinaria profesional</strong>, cálida y confiable, cuidando la salud y el bienestar de cada 
-          animal como parte fundamental de la vida de sus familias y de la producción responsable. Nos 
-          comprometemos a acompañar a cada mascota en todas las etapas de su vida, mediante tratamientos 
-          integrales, planes sanitarios, desparasitaciones y cirugías, incluyendo atención de emergencias. Al mismo 
-          tiempo, ofrecemos soluciones eficientes y basadas en el rigor profesional para animales de producción, 
+          Brindar atención <strong className="text-vete-primary">veterinaria profesional</strong>, cálida y confiable, cuidando la salud y el bienestar de cada
+          animal como parte fundamental de la vida de sus familias y de la producción responsable. Nos
+          comprometemos a acompañar a cada mascota en todas las etapas de su vida, mediante tratamientos
+          integrales, planes sanitarios, desparasitaciones y cirugías, incluyendo atención de emergencias. Al mismo
+          tiempo, ofrecemos soluciones eficientes y basadas en el rigor profesional para animales de producción,
           contribuyendo al desarrollo y la sostenibilidad del sector agropecuario.
         </p>
 
       </InfoSection>
 
       {/* Visión */}
-      <InfoSection 
-        title="Visión" 
-        image="/images/branding/Vision.png" 
+      <InfoSection
+        title="Visión"
+        image="/images/branding/Vision.png"
         reversed={true}
       >
         <p>
-          Ser un referente en la medicina veterinaria, reconocido por la confianza, la calidad profesional y la cercanía con 
+          Ser un referente en la medicina veterinaria, reconocido por la confianza, la calidad profesional y la cercanía con
           nuestros clientes.
         </p>
         <p>
-          Aspiramos a consolidarnos como una clínica destacada en el cuidado de pequeños animales, sin dejar de aportar nuestra 
-          experiencia y eficiencia al servicio veterinario de grandes animales y producción, respaldados por años de trayectoria, 
+          Aspiramos a consolidarnos como una clínica destacada en el cuidado de pequeños animales, sin dejar de aportar nuestra
+          experiencia y eficiencia al servicio veterinario de grandes animales y producción, respaldados por años de trayectoria,
           formación constante y compromiso con la excelencia.
         </p>
       </InfoSection>
 
       {/* Valores */}
-      <InfoSection 
-        title="Valores" 
+      <InfoSection
+        title="Valores"
         image="/images/branding/Valores.png"
       >
         <div className="space-y-4 text-white">
 
           <p><strong className="text-vete-primary">Compromiso con la vida: </strong>
-            Cuidamos cada animal con responsabilidad, vocación y respeto, entendiendo 
+            Cuidamos cada animal con responsabilidad, vocación y respeto, entendiendo
             su importancia en la vida de las personas y en la producción.
           </p>
 
           <p><strong className="text-vete-primary">Profesionalismo y experiencia: </strong>
-            Aplicamos conocimiento, criterio clínico y mejora continua, respaldados por años 
-            de trayectoria en el ámbito veterinario. Atención con calidez humana. 
-            Entendemos el vínculo emocional entre las personas y sus mascotas, brindando 
+            Aplicamos conocimiento, criterio clínico y mejora continua, respaldados por años
+            de trayectoria en el ámbito veterinario. Atención con calidez humana.
+            Entendemos el vínculo emocional entre las personas y sus mascotas, brindando
             un trato cercano, empático y respetuoso.
           </p>
 
           <p><strong className="text-vete-primary">Responsabilidad y confianza: </strong>
-            Actuamos con honestidad, transparencia y ética, generando relaciones duraderas 
-            basadas en la confianza. Eficiencia y seriedad profesional, ofrecemos soluciones 
-            veterinarias confiables tanto en clínica de pequeños animales como en el ámbito de 
+            Actuamos con honestidad, transparencia y ética, generando relaciones duraderas
+            basadas en la confianza. Eficiencia y seriedad profesional, ofrecemos soluciones
+            veterinarias confiables tanto en clínica de pequeños animales como en el ámbito de
             la producción, donde la precisión y la eficiencia son fundamentales.
           </p>
-          
+
         </div>
       </InfoSection>
     </div>
@@ -212,7 +212,7 @@ const AboutSection = () => {
 //   return (
 //     <footer className="main-footer">
 //       <div className="footer-container">
-       
+
 //         {/* Sección del Logo */}
 //         <div className="flex items-center gap-2 font-black text-xl">
 //             <img src="/logo.png" className="w-10" /> VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
@@ -220,7 +220,7 @@ const AboutSection = () => {
 
 //         {/* Sección de Iconos */}
 //         <div className="footer-icons">
-          
+
 //         </div>
 //       </div>
 //     </footer>
@@ -236,83 +236,174 @@ const AboutSection = () => {
 
 
 
+// export const Footer = () => {
+//   return (
+//     <>
+//       {/* 1. IMAGEN DE FONDO (PASTO) 
+//           La ponemos 'fixed' para que siempre esté al fondo del navegador, 
+//           pero con un z-index bajo para que no tape el contenido. */}
+//       <div className="fixed bottom-0 left-0 w-full h-20 pointer-events-none z-0 opacity-40">
+//         <img
+//           src="/images/branding/NavPasto.png"
+//           alt="Nav Pasto"
+//           className="w-full h-full object-cover object-top"
+//         />
+          
+//           {/* SECCIÓN C: Redes Sociales */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
+//             <div className="flex gap-4">
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Instagram size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Facebook size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <MapPin size={24} className="group-hover:text-white" />
+//               </a>
+//             </div>
+//           </div>  
+
+
+//       </div>
+
+
+//       {/* 2. EL FOOTER REAL
+//           Usamos 'relative' y 'z-10' para que flote por encima del pasto.
+//           'backdrop-blur' hace que el pasto se vea suave por detrás. */}
+//       <footer className="relative z-10 bg-vete-dark/90 backdrop-blur-sm border-t border-white/10 px-6 md:px-16 py-12 mt-20">
+//         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+//           {/* SECCIÓN A: Logo y Eslogan */}
+//           <div className="space-y-4">
+//             <div className="flex items-center gap-2 font-black text-xl text-white">
+//               <img src="/logo.png" className="w-10" alt="Logo" />
+//               VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+//             </div>
+//             <p className="text-gray-400 text-sm max-w-xs">
+//               Comprometidos con la salud de tus animales de producción y el bienestar de tus mascotas en Salto.
+//             </p>
+//           </div>
+
+//           {/* SECCIÓN B: Contacto Rápido */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Contacto</h4>
+//             <ul className="space-y-3 text-gray-300">
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <Phone size={18} className="text-vete-primary" />
+//                 <span>092 444 510</span>
+//               </li>
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <Mail size={18} className="text-vete-primary" />
+//                 <span>contacto@vete-beltramelli.com</span>
+//               </li>
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <MapPin size={18} className="text-vete-primary" />
+//                 <span>Salto, Uruguay</span>
+//               </li>
+//             </ul>
+//           </div>
+
+//           {/* SECCIÓN C: Redes Sociales */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
+//             <div className="flex gap-4">
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Instagram size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Facebook size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <MapPin size={24} className="group-hover:text-white" />
+//               </a>
+//             </div>
+//           </div>
+
+//         </div>
+
+//         {/* Créditos finales */}
+//         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
+//           <p>© 2024 Veterinaria Beltramelli - Todos los derechos reservados.</p>
+//           <p className="tracking-widest uppercase opacity-50">Infraestructura por NorthCode</p>
+//         </div>
+//       </footer>
+//     </>
+//   );
+// };
+
+
+
 export const Footer = () => {
   return (
     <>
-      {/* 1. IMAGEN DE FONDO (PASTO) 
-          La ponemos 'fixed' para que siempre esté al fondo del navegador, 
-          pero con un z-index bajo para que no tape el contenido. */}
-      <div className="fixed bottom-0 left-0 w-full h-32 pointer-events-none z-0 opacity-40">
-        <img 
-          src="/images/branding/pasto.png" 
-          alt="Grass background" 
-          className="w-full h-full object-cover object-top"
+      {/* 1. BARRA FLOTANTE DE PASTO + REDES SOCIALES
+          Esta barra siempre está al fondo mientras haces scroll.
+      */}
+      <div className="fixed bottom-0 left-0 w-full h-24 z-20 flex flex-col items-center justify-end pb-4">
+        {/* Imagen del pasto (Fondo de la barra flotante) */}
+        <img
+          src="/images/branding/NavPasto.png"
+          alt="Nav Pasto"
+          className="absolute bottom-0 left-0 w-full h-full object-cover object-top opacity-60 pointer-events-none z-0"
         />
+
+        {/* Iconos de Redes Sociales sobre el pasto flotante */}
+        <div className="relative z-30 flex gap-6 mb-2">
+          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
+            <Instagram size={20} className="text-white group-hover:scale-110" />
+          </a>
+          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
+            <Facebook size={20} className="text-white group-hover:scale-110" />
+          </a>
+        </div>
+        
+        <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
+          Salto, Uruguay
+        </p>
       </div>
 
-      {/* 2. EL FOOTER REAL
-          Usamos 'relative' y 'z-10' para que flote por encima del pasto.
-          'backdrop-blur' hace que el pasto se vea suave por detrás. */}
-      <footer className="relative z-10 bg-vete-dark/90 backdrop-blur-sm border-t border-white/10 px-6 md:px-16 py-12 mt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          
-          {/* SECCIÓN A: Logo y Eslogan */}
+
+      {/* 2. EL FOOTER REAL (El que aparece al final de la página)
+          Tiene un z-index de 40 para "tapar" la barra flotante cuando llegas al final.
+      */}
+      <footer className="relative z-40 bg-vete-dark border-t border-white/10 px-6 md:px-16 py-12 mt-40 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-white">
+
+          {/* SECCIÓN A: Logo */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 font-black text-xl text-white">
-              <img src="/logo.png" className="w-10" alt="Logo" /> 
+            <div className="flex items-center gap-2 font-black text-xl">
+              <img src="/logo.png" className="w-10" alt="Logo" />
               VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
             </div>
-            <p className="text-gray-400 text-sm max-w-xs">
-              Comprometidos con la salud de tus animales de producción y el bienestar de tus mascotas en Salto.
+            <p className="text-gray-400 text-sm">
+              Cuidado experto y calidez humana en cada etapa de su vida.
             </p>
           </div>
 
-          {/* SECCIÓN B: Contacto Rápido */}
+          {/* SECCIÓN B: Contacto */}
           <div className="space-y-4">
-            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Contacto</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <Phone size={18} className="text-vete-primary" />
-                <span>092 444 510</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <Mail size={18} className="text-vete-primary" />
-                <span>contacto@vete-beltramelli.com</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <MapPin size={18} className="text-vete-primary" />
-                <span>Salto, Uruguay</span>
-              </li>
+            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm text-center md:text-left">Contacto</h4>
+            <ul className="space-y-3 text-gray-300 text-sm">
+              <li className="flex items-center gap-3"><Phone size={16} className="text-vete-primary" /> 092 444 510</li>
+              <li className="flex items-center gap-3"><Mail size={16} className="text-vete-primary" /> contacto@vete.com</li>
             </ul>
           </div>
 
-          {/* SECCIÓN C: Redes Sociales */}
-          <div className="space-y-4">
-            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
-            <div className="flex gap-4">
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <Instagram size={24} className="group-hover:text-white" />
-              </a>
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <Facebook size={24} className="group-hover:text-white" />
-              </a>
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <MapPin size={24} className="group-hover:text-white" />
-              </a>
-            </div>
+          {/* SECCIÓN C: Info Extra */}
+          <div className="space-y-4 text-right">
+             <p className="text-xs text-gray-500 uppercase tracking-widest">Atención 24hs en Salto</p>
+             <p className="text-xs text-gray-500">© 2024 NorthCode Infrastructure</p>
           </div>
 
-        </div>
-
-        {/* Créditos finales */}
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-          <p>© 2024 Veterinaria Beltramelli - Todos los derechos reservados.</p>
-          <p className="tracking-widest uppercase opacity-50">Infraestructura por NorthCode</p>
         </div>
       </footer>
     </>
   );
 };
+
+
 
 
 // <!DMI> Seccion Mapas
