@@ -9,29 +9,69 @@ import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 // <!DMI> Header de la web
 const Header = () => {
   return (
-    <header className="px-16 py-8 flex justify-between items-center">
+    // Cambiamos px-16 por px-6 en móvil y md:px-16 en escritorio
+    <header className="px-6 md:px-16 py-8 flex justify-between items-center w-full max-w-full overflow-hidden">
       <div className="flex items-center gap-2 font-black text-xl">
-        <img src="/logo.png" className="w-10" /> VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+        <img src="/logo.png" className="w-10 shrink-0" alt="Logo" />
+      
+        {/* 
+           hidden: oculta el texto por defecto (móvil)
+           md:inline: lo muestra como inline a partir de tablets/PC (768px)
+        */}
+
+        <span className="hidden desktop-vete:inline whitespace-nowrap text-white">
+          VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+        </span>
+
       </div>
+
+
+      <nav className="flex items-center gap-4 md:gap-8 font-semibold text-white">
+        {/* Ocultamos los links en móvil para que no se amontonen, o podrías usar un menú hamburguesa luego */}
+        <a href="#" className=" hover:text-vete-primary transition-colors">Servicios</a>
+        <a href="#" className=" hover:text-vete-primary transition-colors">Tienda</a>
+        <a href="#" className="hover:text-vete-primary transition-colors">Contacto</a>
+        
+        <div className="bg-vete-primary p-2 rounded-full cursor-pointer hover:scale-110 transition-transform">
+          <img src="/images/branding/carrito.svg" className="w-5" alt="Carrito" />
+        </div>
+      </nav>
+
+
+
+
+
+
+      {/* 
+      
       <nav className="flex items-center gap-8 font-semibold">
         <a href="#" className="hover:text-vete-primary">Servicios</a>
         <a href="#" className="hover:text-vete-primary">Tienda</a>
         <a href="#" className="hover:text-vete-primary">Contacto</a>
         <div className="bg-vete-primary p-2 rounded-full"><img src="/images/branding/carrito.svg" className="w-4" /></div>
-      </nav>
+      </nav> 
+      
+      */}
     </header>
   )
 };
 
 // <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
+// <!> Reparar el problema es que la imagen y el texto a una resolucion alta quea a la derecha si arego el w-full en la imagen 
+// queda demasiado gigante y ademas la aliniacion los bordes tendria que crecer o adpatarse segun el tamanio de la pantall.
+// capas colocarle un tamanio mazimo 
+// con esta 1148 resolucion de ancho es se ve bien despues emisa a alinearse a la izquierda y se empese ver desaliniado 1148
 const HeroSection = () => {
   return (
-    <section className="px-16 py-12 flex items-center gap-10">
-      <div className="w-1/2">
-        <h1 className="text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+    <section className="px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
+      
+      {/* El texto ahora es w-full en móvil y w-1/2 en desktop */}
+      <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left">
+        {/*Titulo Princiapl de HeroSeccion*/}      
+        <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
           Cuidamos a <br /><span className="text-white">quienes</span> amas
         </h1>
-        <p className="text-lg opacity-90 max-w-md">
+        <p className="text-lg opacity-90 max-w-md mx-auto md:mx-0">
           Tu mascota merece la mejor atención
           médica en un ambiente cálido y
           profesional. Contamos con especialistas
@@ -41,12 +81,56 @@ const HeroSection = () => {
           de su vida.
         </p>
       </div>
+
+      
+      {/* La imagen tiene 'hidden' por defecto y 'md:block' para aparecer en tablets/PC */}
+      
+      {/*w-full*/} 
+      <div className="hidden desktop-vete:block md:w-1/2 relative">
+        <img 
+          src="/images/branding/HeroSection.png"
+         
+          className="rounded-[3rem] shadow-2xl  object-cover" 
+          alt="Mascotas"
+        />
+      </div>
+      
+      {/*
       <div className="w-1/2 relative">
         <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
       </div>
+      */}
+
     </section>
   )
 };
+
+
+
+// Hero Seccion anterior 12/4 No es responsive pero no esta mal
+// const HeroSection = () => {
+//   return (
+//     <section className="px-16 py-12 flex items-center gap-10">
+//       <div className="w-1/2">
+//         <h1 className="text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+//           Cuidamos a <br /><span className="text-white">quienes</span> amas
+//         </h1>
+//         <p className="text-lg opacity-90 max-w-md">
+//           Tu mascota merece la mejor atención
+//           médica en un ambiente cálido y
+//           profesional. Contamos con especialistas
+//           comprometidos con el bienestar integral
+//           de tus compañeros, brindando cuidado,
+//           dedicación y confianza en cada etapa
+//           de su vida.
+//         </p>
+//       </div>
+//       <div className="w-1/2 relative">
+//         <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
+//       </div>
+//     </section>
+//   )
+// };
 
 // <!DMI> Seccion Productos donde estan las tarjetas de los productos 
 // <!>  Esta tengo que dividirla en las categorias 
@@ -489,18 +573,35 @@ const MapsSection = () => {
 };
 
 
+// Tiene un erro de cuador negro latearl al redimencionar 12-04-2026
+// export default function LandingPage() {
+//   return (
+//     <div className="bg-vete-dark min-h-screen font-sans text-white">
+
+//       <Header />
+//       <HeroSection />
+//       <ProductsSection />
+//       <AboutSection />
+//       <MapsSection />
+//       <Footer />
+
+//     </div>
+//   )
+// };
+
 
 export default function LandingPage() {
   return (
-    <div className="bg-vete-dark min-h-screen font-sans text-white">
-
+    /* Agregamos overflow-x-hidden para evitar la franja lateral */
+    <div className="bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative">
       <Header />
-      <HeroSection />
-      <ProductsSection />
-      <AboutSection />
-      <MapsSection />
+      <main>
+        <HeroSection />
+        <ProductsSection />
+        <AboutSection />
+        <MapsSection />
+      </main>
       <Footer />
-
     </div>
   )
 };
