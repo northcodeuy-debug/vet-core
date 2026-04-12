@@ -359,9 +359,10 @@ export const Footer = () => {
           </a>
         </div>
         
-        <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
+        {/* <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
           Salto, Uruguay
-        </p>
+        </p> */}
+      
       </div>
 
 
