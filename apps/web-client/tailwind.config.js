@@ -10,7 +10,8 @@ export default {
     extend: {
       screens: {
         // Creamos un punto de quiebre justo en 858px
-        'desktop-vete': '858px', 
+        'desktop-vete': '1008px', 
+        'tablet-vete': '858px'
       },           
       colors: {
         vete: {

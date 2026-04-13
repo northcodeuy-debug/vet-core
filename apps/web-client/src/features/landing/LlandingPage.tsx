@@ -19,7 +19,7 @@ const Header = () => {
            md:inline: lo muestra como inline a partir de tablets/PC (768px)
         */}
 
-        <span className="hidden desktop-vete:inline whitespace-nowrap text-white">
+        <span className="hidden tablet-vete:inline whitespace-nowrap text-white">
           VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
         </span>
 
@@ -66,12 +66,23 @@ const HeroSection = () => {
     <section className="px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
       
       {/* El texto ahora es w-full en móvil y w-1/2 en desktop */}
-      <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left">
+      <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
         {/*Titulo Princiapl de HeroSeccion*/}      
+      
+
         <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
-          Cuidamos a <br /><span className="text-white">quienes</span> amas
+          {/* El span asegura que estas dos palabras siempre viajen juntas */}
+          <span className="whitespace-nowrap">Cuidamos a</span> <br />
+          <span className="text-white">quienes</span> amas
         </h1>
-        <p className="text-lg opacity-90 max-w-md mx-auto md:mx-0">
+      
+      
+        {/* <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+          Cuidamos a <br /><span className="text-white">quienes</span> amas
+        </h1> */}
+      
+      
+        <p className="text-lg opacity-90 max-w-md ">
           Tu mascota merece la mejor atención
           médica en un ambiente cálido y
           profesional. Contamos con especialistas
@@ -86,14 +97,14 @@ const HeroSection = () => {
       {/* La imagen tiene 'hidden' por defecto y 'md:block' para aparecer en tablets/PC */}
       
       {/*w-full*/} 
-      <div className="hidden desktop-vete:block md:w-1/2 relative">
-        <img 
-          src="/images/branding/HeroSection.png"
-         
-          className="rounded-[3rem] shadow-2xl  object-cover" 
-          alt="Mascotas"
-        />
-      </div>
+        <div className="hidden desktop-vete:block md:w-1/2 relative">
+          <img 
+            src="/images/branding/HeroSection.png"
+          
+            className="rounded-[3rem] shadow-2xl  object-cover" 
+            alt="Mascotas"
+          />
+        </div>
       
       {/*
       <div className="w-1/2 relative">
