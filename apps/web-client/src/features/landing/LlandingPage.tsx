@@ -13,7 +13,7 @@ const Header = () => {
     <header className="px-6 md:px-16 py-8 flex justify-between items-center w-full max-w-full overflow-hidden">
       <div className="flex items-center gap-2 font-black text-xl">
         <img src="/logo.png" className="w-10 shrink-0" alt="Logo" />
-      
+
         {/* 
            hidden: oculta el texto por defecto (móvil)
            md:inline: lo muestra como inline a partir de tablets/PC (768px)
@@ -31,7 +31,7 @@ const Header = () => {
         <a href="#" className=" hover:text-vete-primary transition-colors">Servicios</a>
         <a href="#" className=" hover:text-vete-primary transition-colors">Tienda</a>
         <a href="#" className="hover:text-vete-primary transition-colors">Contacto</a>
-        
+
         <div className="bg-vete-primary p-2 rounded-full cursor-pointer hover:scale-110 transition-transform">
           <img src="/images/branding/carrito.svg" className="w-5" alt="Carrito" />
         </div>
@@ -57,76 +57,81 @@ const Header = () => {
 };
 
 // <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
-// <!> Reparar el problema es que la imagen y el texto a una resolucion alta quea a la derecha si arego el w-full en la imagen 
-// queda demasiado gigante y ademas la aliniacion los bordes tendria que crecer o adpatarse segun el tamanio de la pantall.
-// capas colocarle un tamanio mazimo 
-// con esta 1148 resolucion de ancho es se ve bien despues emisa a alinearse a la izquierda y se empese ver desaliniado 1148
+// <!>  En la version desktop queda muy vasio queda todo al medio y no queda bien abria que plantear
+// agrandar la letar o algo y que la imagen el limite sea mas grande NO quea bien en resoluiones grandes 
+
 const HeroSection = () => {
   return (
-    <section className="px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
-      
-      {/* El texto ahora es w-full en móvil y w-1/2 en desktop */}
-      <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
-        {/*Titulo Princiapl de HeroSeccion*/}      
-      
+    /* 
+      1. Agregamos un wrapper (div) o usamos la sección como contenedor.
+      2. 'max-w-[1200px]' limita el crecimiento en pantallas ultra-anchas.
+      3. 'mx-auto' centra todo el bloque horizontalmente.
+    */
+    <section className="w-full bg-vete-dark"> 
+      <div className="max-w-[1200px] mx-auto px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
+        
+        {/* Lado del Texto: Limitamos el ancho para que no se estire de más */}
+        <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
+          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+            <span className="whitespace-nowrap">Cuidamos a</span> <br />
+            <span className="text-white">quienes</span> amas
+          </h1>
+        
+          <p className="text-lg opacity-90 max-w-md leading-relaxed text-white">
+            Tu mascota merece la mejor atención médica en un ambiente cálido y
+            profesional. Contamos con especialistas comprometidos con el bienestar 
+            integral de tus compañeros, brindando cuidado, dedicación y confianza 
+            en cada etapa de su vida.
+          </p>
+        </div>
 
-        <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
-          {/* El span asegura que estas dos palabras siempre viajen juntas */}
-          <span className="whitespace-nowrap">Cuidamos a</span> <br />
-          <span className="text-white">quienes</span> amas
-        </h1>
-      
-      
-        {/* <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
-          Cuidamos a <br /><span className="text-white">quienes</span> amas
-        </h1> */}
-      
-      
-        <p className="text-lg opacity-90 max-w-md ">
-          Tu mascota merece la mejor atención
-          médica en un ambiente cálido y
-          profesional. Contamos con especialistas
-          comprometidos con el bienestar integral
-          de tus compañeros, brindando cuidado,
-          dedicación y confianza en cada etapa
-          de su vida.
-        </p>
-      </div>
-
-      
-      {/* La imagen tiene 'hidden' por defecto y 'md:block' para aparecer en tablets/PC */}
-      
-      {/*w-full*/} 
-        <div className="hidden desktop-vete:block md:w-1/2 relative">
+        {/* Lado de la Imagen: Controlamos el tamaño máximo para que no sea 'gigante' */}
+        <div className="hidden desktop-vete:flex w-full md:w-1/2 justify-center desktop-vete:justify-end relative">
           <img 
             src="/images/branding/HeroSection.png"
-          
-            className="rounded-[3rem] shadow-2xl  object-cover" 
+            className="rounded-[3rem] shadow-2xl object-cover max-w-full h-auto lg:max-h-[1100px]" 
             alt="Mascotas"
           />
         </div>
-      
-      {/*
-      <div className="w-1/2 relative">
-        <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
-      </div>
-      */}
 
+      </div>
     </section>
   )
 };
 
 
+// <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
 
-// Hero Seccion anterior 12/4 No es responsive pero no esta mal
+// <!> Version anterior 13-04
+// <!> Reparar el problema es que la imagen y el texto a una resolucion alta quea a la derecha si arego el w-full en la imagen 
+// queda demasiado gigante y ademas la aliniacion los bordes tendria que crecer o adpatarse segun el tamanio de la pantall.
+// capas colocarle un tamanio mazimo 
+// con esta 1148 resolucion de ancho es se ve bien despues emisa a alinearse a la izquierda y se empese ver desaliniado 1148
+
+
 // const HeroSection = () => {
 //   return (
-//     <section className="px-16 py-12 flex items-center gap-10">
-//       <div className="w-1/2">
-//         <h1 className="text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
-//           Cuidamos a <br /><span className="text-white">quienes</span> amas
+
+//     <section className="px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
+      
+//       {/* El texto ahora es w-full en móvil y w-1/2 en desktop */}
+//       <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
+//         {/*Titulo Princiapl de HeroSeccion*/}      
+      
+
+//         <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+//           {/* El span asegura que estas dos palabras siempre viajen juntas */}
+//           <span className="whitespace-nowrap">Cuidamos a</span> <br />
+//           <span className="text-white">quienes</span> amas
 //         </h1>
-//         <p className="text-lg opacity-90 max-w-md">
+      
+      
+//         {/* <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+//           Cuidamos a <br /><span className="text-white">quienes</span> amas
+//         </h1> */}
+      
+      
+//         <p className="text-lg opacity-90 max-w-md ">
 //           Tu mascota merece la mejor atención
 //           médica en un ambiente cálido y
 //           profesional. Contamos con especialistas
@@ -136,85 +141,149 @@ const HeroSection = () => {
 //           de su vida.
 //         </p>
 //       </div>
+
+      
+//       {/* La imagen tiene 'hidden' por defecto y 'md:block' para aparecer en tablets/PC */}
+      
+//       {/*w-full*/} 
+//         <div className="hidden desktop-vete:block md:w-1/2 relative">
+//           <img 
+//             src="/images/branding/HeroSection.png"
+          
+//             className="rounded-[3rem] shadow-2xl  object-cover" 
+//             alt="Mascotas"
+//           />
+//         </div>
+      
+//       {/*
 //       <div className="w-1/2 relative">
 //         <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
 //       </div>
+//       */}
+
 //     </section>
 //   )
 // };
 
-// <!DMI> Seccion Productos donde estan las tarjetas de los productos 
-// <!>  Esta tengo que dividirla en las categorias 
+
+
+
+
+// <!DMI> Seccion Productos donde estan las tarjetas de los productos  
 
 const ProductsSection = () => {
   return (
-    <section className="px-16 py-20 bg-white/5 mt-10">
-      <h2 className="text-4xl font-extrabold mb-12 text-white italic">
+    <section className="px-6 md:px-16 py-20 bg-white/5 mt-10">
+      <h2 className="text-4xl font-black mb-12 text-white italic">
         Lista de <span className="text-vete-primary">Productos</span>
       </h2>
 
-      {/* Categoría Ración */}
-      <div className="mb-20">
-        <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
-          <h3 className="text-5xl font-black text-vete-primary leading-none">Ración</h3>
-          <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.racion.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-        </div>
-      </div>
+      {/* Categoría Genérica para todas */}
+      {[
+        { title: "Ración", data: products.racion },
+        { title: "Accesorios", data: products.accesorios },
+        { title: "Medicamentos", data: products.racion } // Ajustar a products.medicamentos cuando esté listo
+      ].map((cat, idx) => (
+        <div key={idx} className="mb-20">
+          <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
+            <h3 className="text-5xl font-black text-vete-primary leading-none">{cat.title}</h3>
+            <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
+          </div>
 
-      {/* Categoría Accesorios */}
-      <div className="mb-12">
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-4xl font-black text-vete-primary">Accesorios</h3>
-          <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+          {/* 
+              Lógica de columnas:
+              grid-cols-1: Móvil (1 tarjeta)
+              sm:grid-cols-2: Tablet pequeña (2 tarjetas)
+              lg:grid-cols-3: Tablet grande / Monitor pequeño (3 tarjetas)
+              xl:grid-cols-4: Monitor normal (4 tarjetas)
+          */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 gap-x-6 justify-items-center">
+            {cat.data.map(p => (
+              <ProductCard
+                key={p.id}
+                title={p.titulo}
+                desc={p.descripcion}
+                price={p.precio}
+                img={p.imagen}
+              />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.accesorios.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Categoría Medicamentos */}
-      <div className="mb-12">
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-4xl font-black text-vete-primary">Medicamentos</h3>
-          <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.racion.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-
-        </div>
-      </div>
-
+      ))}
     </section>
-  )
-}
+  );
+};
 
+// Version de 13-4-26
+
+// const ProductsSection = () => {
+//   return (
+//     <section className="px-16 py-20 bg-white/5 mt-10">
+//       <h2 className="text-4xl font-extrabold mb-12 text-white italic">
+//         Lista de <span className="text-vete-primary">Productos</span>
+//       </h2>
+
+//       {/* Categoría Ración */}
+//       <div className="mb-20">
+//         <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
+//           <h3 className="text-5xl font-black text-vete-primary leading-none">Ración</h3>
+//           <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.racion.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Categoría Accesorios */}
+//       <div className="mb-12">
+//         <div className="flex justify-between items-end mb-6">
+//           <h3 className="text-4xl font-black text-vete-primary">Accesorios</h3>
+//           <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.accesorios.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Categoría Medicamentos */}
+//       <div className="mb-12">
+//         <div className="flex justify-between items-end mb-6">
+//           <h3 className="text-4xl font-black text-vete-primary">Medicamentos</h3>
+//           <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.racion.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+
+//         </div>
+//       </div>
+
+//     </section>
+//   )
+//}
 
 // Componente auxiliar para evitar repetir código en Misión, Visión y Valores
 const InfoSection = ({ title, children, image, reversed = false }: { title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
@@ -343,7 +412,7 @@ const AboutSection = () => {
 //           alt="Nav Pasto"
 //           className="w-full h-full object-cover object-top"
 //         />
-          
+
 //           {/* SECCIÓN C: Redes Sociales */}
 //           <div className="space-y-4">
 //             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
@@ -453,11 +522,11 @@ export const Footer = () => {
             <Facebook size={20} className="text-white group-hover:scale-110" />
           </a>
         </div>
-        
+
         {/* <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
           Salto, Uruguay
         </p> */}
-      
+
       </div>
 
 
@@ -489,8 +558,8 @@ export const Footer = () => {
 
           {/* SECCIÓN C: Info Extra */}
           <div className="space-y-4 text-right">
-             <p className="text-xs text-gray-500 uppercase tracking-widest">Atención 24hs en Salto</p>
-             <p className="text-xs text-gray-500">© 2024 NorthCode Infrastructure</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">Atención 24hs en Salto</p>
+            <p className="text-xs text-gray-500">© 2024 NorthCode Infrastructure</p>
           </div>
 
         </div>
