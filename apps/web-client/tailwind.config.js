@@ -8,11 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        // Creamos un punto de quiebre justo en 858px
+        'desktop-vete': '1008px', 
+        'tablet-vete': '858px'
+      },           
       colors: {
         vete: {
           // Por lo que se es para el menu cartel de la web
           bg: '#F1F7F4',
-
           // Colores para la web
           primary: '#aaca50',    // Verde claro
           dark: '#1b4332',       // Verde oscuro (fondo)
@@ -29,3 +33,4 @@ export default {
 }
 
 
+// tailwind.config.js

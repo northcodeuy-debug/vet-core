@@ -3,123 +3,288 @@ import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
 
 
-import {  Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 
 // <!DMI> Header de la web
 const Header = () => {
   return (
-    <header className="px-16 py-8 flex justify-between items-center">
+    // Cambiamos px-16 por px-6 en móvil y md:px-16 en escritorio
+    <header className="px-6 md:px-16 py-8 flex justify-between items-center w-full max-w-full overflow-hidden">
       <div className="flex items-center gap-2 font-black text-xl">
-        <img src="/logo.png" className="w-10" /> VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+        <img src="/logo.png" className="w-10 shrink-0" alt="Logo" />
+
+        {/* 
+           hidden: oculta el texto por defecto (móvil)
+           md:inline: lo muestra como inline a partir de tablets/PC (768px)
+        */}
+
+        <span className="hidden tablet-vete:inline whitespace-nowrap text-white">
+          VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+        </span>
+
       </div>
+
+
+      <nav className="flex items-center gap-4 md:gap-8 font-semibold text-white">
+        {/* Ocultamos los links en móvil para que no se amontonen, o podrías usar un menú hamburguesa luego */}
+        <a href="#" className=" hover:text-vete-primary transition-colors">Servicios</a>
+        <a href="#" className=" hover:text-vete-primary transition-colors">Tienda</a>
+        <a href="#" className="hover:text-vete-primary transition-colors">Contacto</a>
+
+        <div className="bg-vete-primary p-2 rounded-full cursor-pointer hover:scale-110 transition-transform">
+          <img src="/images/branding/carrito.svg" className="w-5" alt="Carrito" />
+        </div>
+      </nav>
+
+
+
+
+
+
+      {/* 
+      
       <nav className="flex items-center gap-8 font-semibold">
         <a href="#" className="hover:text-vete-primary">Servicios</a>
         <a href="#" className="hover:text-vete-primary">Tienda</a>
         <a href="#" className="hover:text-vete-primary">Contacto</a>
         <div className="bg-vete-primary p-2 rounded-full"><img src="/images/branding/carrito.svg" className="w-4" /></div>
-      </nav>
+      </nav> 
+      
+      */}
     </header>
   )
 };
 
 // <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
+// <!>  En la version desktop queda muy vasio queda todo al medio y no queda bien abria que plantear
+// agrandar la letar o algo y que la imagen el limite sea mas grande NO quea bien en resoluiones grandes 
+// Estaria bueno agregar animacion de 3 fotos para la version grande para que me jore el contenido 
+
 const HeroSection = () => {
   return (
-    <section className="px-16 py-12 flex items-center gap-10">
-      <div className="w-1/2">
-        <h1 className="text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
-          Cuidamos a <br /><span className="text-white">quienes</span> amas
-        </h1>
-        <p className="text-lg opacity-90 max-w-md">
-          Tu mascota merece la mejor atención
-          médica en un ambiente cálido y
-          profesional. Contamos con especialistas
-          comprometidos con el bienestar integral
-          de tus compañeros, brindando cuidado,
-          dedicación y confianza en cada etapa
-          de su vida.
-        </p>
-      </div>
-      <div className="w-1/2 relative">
-        <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
+    /* 
+      1. Agregamos un wrapper (div) o usamos la sección como contenedor.
+      2. 'max-w-[1200px]' limita el crecimiento en pantallas ultra-anchas.
+      3. 'mx-auto' centra todo el bloque horizontalmente.
+    */
+    <section className="w-full bg-vete-dark"> 
+      <div className="max-w-[1200px] mx-auto px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
+        
+        {/* Lado del Texto: Limitamos el ancho para que no se estire de más */}
+        <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
+          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+            <span className="whitespace-nowrap">Cuidamos a</span> <br />
+            <span className="text-white">quienes</span> amas
+          </h1>
+        
+          <p className="text-lg opacity-90 max-w-md leading-relaxed text-white">
+            Tu mascota merece la mejor atención médica en un ambiente cálido y
+            profesional. Contamos con especialistas comprometidos con el bienestar 
+            integral de tus compañeros, brindando cuidado, dedicación y confianza 
+            en cada etapa de su vida.
+          </p>
+        </div>
+
+        {/* Lado de la Imagen: Controlamos el tamaño máximo para que no sea 'gigante' */}
+        <div className="hidden desktop-vete:flex w-full md:w-1/2 justify-center desktop-vete:justify-end relative">
+          <img 
+            src="/images/branding/HeroSection.png"
+            className="rounded-[3rem] shadow-2xl object-cover max-w-full h-auto lg:max-h-[1100px]" 
+            alt="Mascotas"
+          />
+        </div>
+
       </div>
     </section>
   )
 };
 
-// <!DMI> Seccion Productos donde estan las tarjetas de los productos 
-// <!>  Esta tengo que dividirla en las categorias 
+
+// <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
+
+// <!> Version anterior 13-04
+// <!> Reparar el problema es que la imagen y el texto a una resolucion alta quea a la derecha si arego el w-full en la imagen 
+// queda demasiado gigante y ademas la aliniacion los bordes tendria que crecer o adpatarse segun el tamanio de la pantall.
+// capas colocarle un tamanio mazimo 
+// con esta 1148 resolucion de ancho es se ve bien despues emisa a alinearse a la izquierda y se empese ver desaliniado 1148
+
+
+// const HeroSection = () => {
+//   return (
+
+//     <section className="px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10">
+      
+//       {/* El texto ahora es w-full en móvil y w-1/2 en desktop */}
+//       <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
+//         {/*Titulo Princiapl de HeroSeccion*/}      
+      
+
+//         <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+//           {/* El span asegura que estas dos palabras siempre viajen juntas */}
+//           <span className="whitespace-nowrap">Cuidamos a</span> <br />
+//           <span className="text-white">quienes</span> amas
+//         </h1>
+      
+      
+//         {/* <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
+//           Cuidamos a <br /><span className="text-white">quienes</span> amas
+//         </h1> */}
+      
+      
+//         <p className="text-lg opacity-90 max-w-md ">
+//           Tu mascota merece la mejor atención
+//           médica en un ambiente cálido y
+//           profesional. Contamos con especialistas
+//           comprometidos con el bienestar integral
+//           de tus compañeros, brindando cuidado,
+//           dedicación y confianza en cada etapa
+//           de su vida.
+//         </p>
+//       </div>
+
+      
+//       {/* La imagen tiene 'hidden' por defecto y 'md:block' para aparecer en tablets/PC */}
+      
+//       {/*w-full*/} 
+//         <div className="hidden desktop-vete:block md:w-1/2 relative">
+//           <img 
+//             src="/images/branding/HeroSection.png"
+          
+//             className="rounded-[3rem] shadow-2xl  object-cover" 
+//             alt="Mascotas"
+//           />
+//         </div>
+      
+//       {/*
+//       <div className="w-1/2 relative">
+//         <img src="/images/branding/HeroSection.png" className="rounded-[3rem] shadow-2xl" />
+//       </div>
+//       */}
+
+//     </section>
+//   )
+// };
+
+
+
+
+
+// <!DMI> Seccion Productos donde estan las tarjetas de los productos  
 
 const ProductsSection = () => {
   return (
-    <section className="px-16 py-20 bg-white/5 mt-10">
-      <h2 className="text-4xl font-extrabold mb-12 text-white italic">
+    <section className="px-6 md:px-16 py-20 bg-white/5 mt-10">
+      <h2 className="text-4xl font-black mb-12 text-white italic">
         Lista de <span className="text-vete-primary">Productos</span>
       </h2>
 
-      {/* Categoría Ración */}
-      <div className="mb-20">
-        <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
-          <h3 className="text-5xl font-black text-vete-primary leading-none">Ración</h3>
-          <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.racion.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-        </div>
-      </div>
+      {/* Categoría Genérica para todas */}
+      {[
+        { title: "Ración", data: products.racion },
+        { title: "Accesorios", data: products.accesorios },
+        { title: "Medicamentos", data: products.racion } // Ajustar a products.medicamentos cuando esté listo
+      ].map((cat, idx) => (
+        <div key={idx} className="mb-20">
+          <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
+            <h3 className="text-5xl font-black text-vete-primary leading-none">{cat.title}</h3>
+            <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
+          </div>
 
-      {/* Categoría Accesorios */}
-      <div className="mb-12">
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-4xl font-black text-vete-primary">Accesorios</h3>
-          <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+          {/* 
+              Lógica de columnas:
+              grid-cols-1: Móvil (1 tarjeta)
+              sm:grid-cols-2: Tablet pequeña (2 tarjetas)
+              lg:grid-cols-3: Tablet grande / Monitor pequeño (3 tarjetas)
+              xl:grid-cols-4: Monitor normal (4 tarjetas)
+          */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 gap-x-6 justify-items-center">
+            {cat.data.map(p => (
+              <ProductCard
+                key={p.id}
+                title={p.titulo}
+                desc={p.descripcion}
+                price={p.precio}
+                img={p.imagen}
+              />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.accesorios.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Categoría Medicamentos */}
-      <div className="mb-12">
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-4xl font-black text-vete-primary">Medicamentos</h3>
-          <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {products.racion.map(p => (
-            <ProductCard
-              key={p.id}
-              title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
-              desc={p.descripcion}    // 'descripcion' -> 'desc'
-              price={p.precio}        // 'precio' -> 'price'
-              img={p.imagen}          // 'imagen' -> 'img'
-            />
-          ))}
-
-        </div>
-      </div>
-
+      ))}
     </section>
-  )
-}
+  );
+};
 
+// Version de 13-4-26
+
+// const ProductsSection = () => {
+//   return (
+//     <section className="px-16 py-20 bg-white/5 mt-10">
+//       <h2 className="text-4xl font-extrabold mb-12 text-white italic">
+//         Lista de <span className="text-vete-primary">Productos</span>
+//       </h2>
+
+//       {/* Categoría Ración */}
+//       <div className="mb-20">
+//         <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
+//           <h3 className="text-5xl font-black text-vete-primary leading-none">Ración</h3>
+//           <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.racion.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Categoría Accesorios */}
+//       <div className="mb-12">
+//         <div className="flex justify-between items-end mb-6">
+//           <h3 className="text-4xl font-black text-vete-primary">Accesorios</h3>
+//           <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.accesorios.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Categoría Medicamentos */}
+//       <div className="mb-12">
+//         <div className="flex justify-between items-end mb-6">
+//           <h3 className="text-4xl font-black text-vete-primary">Medicamentos</h3>
+//           <button className="text-vete-primary font-bold flex items-center gap-2">Ver catálogo completo ➔</button>
+//         </div>
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+//           {products.racion.map(p => (
+//             <ProductCard
+//               key={p.id}
+//               title={p.titulo}        // El JSON dice 'titulo', el componente espera 'title'
+//               desc={p.descripcion}    // 'descripcion' -> 'desc'
+//               price={p.precio}        // 'precio' -> 'price'
+//               img={p.imagen}          // 'imagen' -> 'img'
+//             />
+//           ))}
+
+//         </div>
+//       </div>
+
+//     </section>
+//   )
+//}
 
 // Componente auxiliar para evitar repetir código en Misión, Visión y Valores
 const InfoSection = ({ title, children, image, reversed = false }: { title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
@@ -131,10 +296,10 @@ const InfoSection = ({ title, children, image, reversed = false }: { title: stri
       </div>
     </div>
     <div className="w-full md:w-1/2">
-      <img 
-        src={image} 
-        alt={title} 
-        className="w-full h-[450px] object-cover rounded-[3rem] shadow-2xl border-2 border-vete-primary/10" 
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-[450px] object-cover rounded-[3rem] shadow-2xl border-2 border-vete-primary/10"
       />
     </div>
   </section>
@@ -144,64 +309,64 @@ const AboutSection = () => {
   return (
     <div className="bg-white/5">
       {/* Misión */}
-      <InfoSection 
-        title="Misión" 
+      <InfoSection
+        title="Misión"
         image="/images/branding/Mision.png"
       >
         <p>
-          Brindar atención <strong className="text-vete-primary">veterinaria profesional</strong>, cálida y confiable, cuidando la salud y el bienestar de cada 
-          animal como parte fundamental de la vida de sus familias y de la producción responsable. Nos 
-          comprometemos a acompañar a cada mascota en todas las etapas de su vida, mediante tratamientos 
-          integrales, planes sanitarios, desparasitaciones y cirugías, incluyendo atención de emergencias. Al mismo 
-          tiempo, ofrecemos soluciones eficientes y basadas en el rigor profesional para animales de producción, 
+          Brindar atención <strong className="text-vete-primary">veterinaria profesional</strong>, cálida y confiable, cuidando la salud y el bienestar de cada
+          animal como parte fundamental de la vida de sus familias y de la producción responsable. Nos
+          comprometemos a acompañar a cada mascota en todas las etapas de su vida, mediante tratamientos
+          integrales, planes sanitarios, desparasitaciones y cirugías, incluyendo atención de emergencias. Al mismo
+          tiempo, ofrecemos soluciones eficientes y basadas en el rigor profesional para animales de producción,
           contribuyendo al desarrollo y la sostenibilidad del sector agropecuario.
         </p>
 
       </InfoSection>
 
       {/* Visión */}
-      <InfoSection 
-        title="Visión" 
-        image="/images/branding/Vision.png" 
+      <InfoSection
+        title="Visión"
+        image="/images/branding/Vision.png"
         reversed={true}
       >
         <p>
-          Ser un referente en la medicina veterinaria, reconocido por la confianza, la calidad profesional y la cercanía con 
+          Ser un referente en la medicina veterinaria, reconocido por la confianza, la calidad profesional y la cercanía con
           nuestros clientes.
         </p>
         <p>
-          Aspiramos a consolidarnos como una clínica destacada en el cuidado de pequeños animales, sin dejar de aportar nuestra 
-          experiencia y eficiencia al servicio veterinario de grandes animales y producción, respaldados por años de trayectoria, 
+          Aspiramos a consolidarnos como una clínica destacada en el cuidado de pequeños animales, sin dejar de aportar nuestra
+          experiencia y eficiencia al servicio veterinario de grandes animales y producción, respaldados por años de trayectoria,
           formación constante y compromiso con la excelencia.
         </p>
       </InfoSection>
 
       {/* Valores */}
-      <InfoSection 
-        title="Valores" 
+      <InfoSection
+        title="Valores"
         image="/images/branding/Valores.png"
       >
         <div className="space-y-4 text-white">
 
           <p><strong className="text-vete-primary">Compromiso con la vida: </strong>
-            Cuidamos cada animal con responsabilidad, vocación y respeto, entendiendo 
+            Cuidamos cada animal con responsabilidad, vocación y respeto, entendiendo
             su importancia en la vida de las personas y en la producción.
           </p>
 
           <p><strong className="text-vete-primary">Profesionalismo y experiencia: </strong>
-            Aplicamos conocimiento, criterio clínico y mejora continua, respaldados por años 
-            de trayectoria en el ámbito veterinario. Atención con calidez humana. 
-            Entendemos el vínculo emocional entre las personas y sus mascotas, brindando 
+            Aplicamos conocimiento, criterio clínico y mejora continua, respaldados por años
+            de trayectoria en el ámbito veterinario. Atención con calidez humana.
+            Entendemos el vínculo emocional entre las personas y sus mascotas, brindando
             un trato cercano, empático y respetuoso.
           </p>
 
           <p><strong className="text-vete-primary">Responsabilidad y confianza: </strong>
-            Actuamos con honestidad, transparencia y ética, generando relaciones duraderas 
-            basadas en la confianza. Eficiencia y seriedad profesional, ofrecemos soluciones 
-            veterinarias confiables tanto en clínica de pequeños animales como en el ámbito de 
+            Actuamos con honestidad, transparencia y ética, generando relaciones duraderas
+            basadas en la confianza. Eficiencia y seriedad profesional, ofrecemos soluciones
+            veterinarias confiables tanto en clínica de pequeños animales como en el ámbito de
             la producción, donde la precisión y la eficiencia son fundamentales.
           </p>
-          
+
         </div>
       </InfoSection>
     </div>
@@ -212,7 +377,7 @@ const AboutSection = () => {
 //   return (
 //     <footer className="main-footer">
 //       <div className="footer-container">
-       
+
 //         {/* Sección del Logo */}
 //         <div className="flex items-center gap-2 font-black text-xl">
 //             <img src="/logo.png" className="w-10" /> VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
@@ -220,7 +385,7 @@ const AboutSection = () => {
 
 //         {/* Sección de Iconos */}
 //         <div className="footer-icons">
-          
+
 //         </div>
 //       </div>
 //     </footer>
@@ -236,83 +401,175 @@ const AboutSection = () => {
 
 
 
+// export const Footer = () => {
+//   return (
+//     <>
+//       {/* 1. IMAGEN DE FONDO (PASTO) 
+//           La ponemos 'fixed' para que siempre esté al fondo del navegador, 
+//           pero con un z-index bajo para que no tape el contenido. */}
+//       <div className="fixed bottom-0 left-0 w-full h-20 pointer-events-none z-0 opacity-40">
+//         <img
+//           src="/images/branding/NavPasto.png"
+//           alt="Nav Pasto"
+//           className="w-full h-full object-cover object-top"
+//         />
+
+//           {/* SECCIÓN C: Redes Sociales */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
+//             <div className="flex gap-4">
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Instagram size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Facebook size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <MapPin size={24} className="group-hover:text-white" />
+//               </a>
+//             </div>
+//           </div>  
+
+
+//       </div>
+
+
+//       {/* 2. EL FOOTER REAL
+//           Usamos 'relative' y 'z-10' para que flote por encima del pasto.
+//           'backdrop-blur' hace que el pasto se vea suave por detrás. */}
+//       <footer className="relative z-10 bg-vete-dark/90 backdrop-blur-sm border-t border-white/10 px-6 md:px-16 py-12 mt-20">
+//         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+//           {/* SECCIÓN A: Logo y Eslogan */}
+//           <div className="space-y-4">
+//             <div className="flex items-center gap-2 font-black text-xl text-white">
+//               <img src="/logo.png" className="w-10" alt="Logo" />
+//               VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
+//             </div>
+//             <p className="text-gray-400 text-sm max-w-xs">
+//               Comprometidos con la salud de tus animales de producción y el bienestar de tus mascotas en Salto.
+//             </p>
+//           </div>
+
+//           {/* SECCIÓN B: Contacto Rápido */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Contacto</h4>
+//             <ul className="space-y-3 text-gray-300">
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <Phone size={18} className="text-vete-primary" />
+//                 <span>092 444 510</span>
+//               </li>
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <Mail size={18} className="text-vete-primary" />
+//                 <span>contacto@vete-beltramelli.com</span>
+//               </li>
+//               <li className="flex items-center gap-3 hover:text-white transition">
+//                 <MapPin size={18} className="text-vete-primary" />
+//                 <span>Salto, Uruguay</span>
+//               </li>
+//             </ul>
+//           </div>
+
+//           {/* SECCIÓN C: Redes Sociales */}
+//           <div className="space-y-4">
+//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
+//             <div className="flex gap-4">
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Instagram size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <Facebook size={24} className="group-hover:text-white" />
+//               </a>
+//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
+//                 <MapPin size={24} className="group-hover:text-white" />
+//               </a>
+//             </div>
+//           </div>
+
+//         </div>
+
+//         {/* Créditos finales */}
+//         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
+//           <p>© 2024 Veterinaria Beltramelli - Todos los derechos reservados.</p>
+//           <p className="tracking-widest uppercase opacity-50">Infraestructura por NorthCode</p>
+//         </div>
+//       </footer>
+//     </>
+//   );
+// };
+
+
+
 export const Footer = () => {
   return (
     <>
-      {/* 1. IMAGEN DE FONDO (PASTO) 
-          La ponemos 'fixed' para que siempre esté al fondo del navegador, 
-          pero con un z-index bajo para que no tape el contenido. */}
-      <div className="fixed bottom-0 left-0 w-full h-32 pointer-events-none z-0 opacity-40">
-        <img 
-          src="/images/branding/pasto.png" 
-          alt="Grass background" 
-          className="w-full h-full object-cover object-top"
+      {/* 1. BARRA FLOTANTE DE PASTO + REDES SOCIALES
+          Esta barra siempre está al fondo mientras haces scroll.
+      */}
+      <div className="fixed bottom-0 left-0 w-full h-24 z-20 flex flex-col items-center justify-end pb-4">
+        {/* Imagen del pasto (Fondo de la barra flotante) */}
+        <img
+          src="/images/branding/NavPasto.png"
+          alt="Nav Pasto"
+          className="absolute bottom-0 left-0 w-full h-full object-cover object-top opacity-60 pointer-events-none z-0"
         />
+
+        {/* Iconos de Redes Sociales sobre el pasto flotante */}
+        <div className="relative z-30 flex gap-6 mb-2">
+          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
+            <Instagram size={20} className="text-white group-hover:scale-110" />
+          </a>
+          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
+            <Facebook size={20} className="text-white group-hover:scale-110" />
+          </a>
+        </div>
+
+        {/* <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
+          Salto, Uruguay
+        </p> */}
+
       </div>
 
-      {/* 2. EL FOOTER REAL
-          Usamos 'relative' y 'z-10' para que flote por encima del pasto.
-          'backdrop-blur' hace que el pasto se vea suave por detrás. */}
-      <footer className="relative z-10 bg-vete-dark/90 backdrop-blur-sm border-t border-white/10 px-6 md:px-16 py-12 mt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          
-          {/* SECCIÓN A: Logo y Eslogan */}
+
+      {/* 2. EL FOOTER REAL (El que aparece al final de la página)
+          Tiene un z-index de 40 para "tapar" la barra flotante cuando llegas al final.
+      */}
+      <footer className="relative z-40 bg-vete-dark border-t border-white/10 px-6 md:px-16 py-12 mt-40 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-white">
+
+          {/* SECCIÓN A: Logo */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 font-black text-xl text-white">
-              <img src="/logo.png" className="w-10" alt="Logo" /> 
+            <div className="flex items-center gap-2 font-black text-xl">
+              <img src="/logo.png" className="w-10" alt="Logo" />
               VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
             </div>
-            <p className="text-gray-400 text-sm max-w-xs">
-              Comprometidos con la salud de tus animales de producción y el bienestar de tus mascotas en Salto.
+            <p className="text-gray-400 text-sm">
+              Cuidado experto y calidez humana en cada etapa de su vida.
             </p>
           </div>
 
-          {/* SECCIÓN B: Contacto Rápido */}
+          {/* SECCIÓN B: Contacto */}
           <div className="space-y-4">
-            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Contacto</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <Phone size={18} className="text-vete-primary" />
-                <span>092 444 510</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <Mail size={18} className="text-vete-primary" />
-                <span>contacto@vete-beltramelli.com</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-white transition">
-                <MapPin size={18} className="text-vete-primary" />
-                <span>Salto, Uruguay</span>
-              </li>
+            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm text-center md:text-left">Contacto</h4>
+            <ul className="space-y-3 text-gray-300 text-sm">
+              <li className="flex items-center gap-3"><Phone size={16} className="text-vete-primary" /> 092 444 510</li>
+              <li className="flex items-center gap-3"><Mail size={16} className="text-vete-primary" /> contacto@vete.com</li>
             </ul>
           </div>
 
-          {/* SECCIÓN C: Redes Sociales */}
-          <div className="space-y-4">
-            <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
-            <div className="flex gap-4">
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <Instagram size={24} className="group-hover:text-white" />
-              </a>
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <Facebook size={24} className="group-hover:text-white" />
-              </a>
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-                <MapPin size={24} className="group-hover:text-white" />
-              </a>
-            </div>
+          {/* SECCIÓN C: Info Extra */}
+          <div className="space-y-4 text-right">
+            <p className="text-xs text-gray-500 uppercase tracking-widest">Atención 24hs en Salto</p>
+            <p className="text-xs text-gray-500">© 2024 NorthCode Infrastructure</p>
           </div>
 
-        </div>
-
-        {/* Créditos finales */}
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-          <p>© 2024 Veterinaria Beltramelli - Todos los derechos reservados.</p>
-          <p className="tracking-widest uppercase opacity-50">Infraestructura por NorthCode</p>
         </div>
       </footer>
     </>
   );
 };
+
+
 
 
 // <!DMI> Seccion Mapas
@@ -397,18 +654,36 @@ const MapsSection = () => {
 };
 
 
+// Tiene un erro de cuador negro latearl al redimencionar 12-04-2026
+// export default function LandingPage() {
+//   return (
+//     <div className="bg-vete-dark min-h-screen font-sans text-white">
+
+//       <Header />
+//       <HeroSection />
+//       <ProductsSection />
+//       <AboutSection />
+//       <MapsSection />
+//       <Footer />
+
+//     </div>
+//   )
+// };
+
 
 export default function LandingPage() {
   return (
-    <div className="bg-vete-dark min-h-screen font-sans text-white">
-
+    /* Agregamos overflow-x-hidden para evitar la franja lateral */
+                   // bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative border-0 m-0 p-0 
+    <div className="bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative border-0 m-0 p-0">
       <Header />
-      <HeroSection />
-      <ProductsSection />
-      <AboutSection />
-      <MapsSection />
+      <main>
+        <HeroSection />
+        <ProductsSection />
+        <AboutSection />
+        <MapsSection />
+      </main>
       <Footer />
-
     </div>
   )
 };
