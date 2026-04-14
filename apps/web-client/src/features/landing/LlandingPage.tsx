@@ -59,6 +59,7 @@ const Header = () => {
 // <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
 // <!>  En la version desktop queda muy vasio queda todo al medio y no queda bien abria que plantear
 // agrandar la letar o algo y que la imagen el limite sea mas grande NO quea bien en resoluiones grandes 
+// Estaria bueno agregar animacion de 3 fotos para la version grande para que me jore el contenido 
 
 const HeroSection = () => {
   return (
@@ -197,7 +198,7 @@ const ProductsSection = () => {
               lg:grid-cols-3: Tablet grande / Monitor pequeño (3 tarjetas)
               xl:grid-cols-4: Monitor normal (4 tarjetas)
           */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 gap-x-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 gap-x-6 justify-items-center">
             {cat.data.map(p => (
               <ProductCard
                 key={p.id}

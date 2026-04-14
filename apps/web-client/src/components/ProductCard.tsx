@@ -1,4 +1,5 @@
 // src/components/ProductCard.tsx
+
 import { ShoppingCart, MessageCircle } from 'lucide-react';
 
 interface Props { title: string; desc: string; price: number; img: string; }
@@ -44,14 +45,24 @@ interface Props { title: string; desc: string; price: number; img: string; }
 
 export const ProductCard = ({ title, desc, price, img }: Props) => (                  
   <div className="bg-vete-soft/50 p-6 rounded-[2rem] flex flex-col gap-2 min-w-[280px]">
+    {/* Imagen del producto */}
     <img src={img} alt={title} className="rounded-2xl w-full h-48 object-cover" />
+    {/* Titulo del producto */}
     <h4 className="text-vete-primary font-bold text-lg mt-2">{title}</h4>
+    {/* Descripcion del producto */}
     <p className="text-vete-  dark text-sm">{desc}</p>
+    {/* Precio y botones de accion */}
     <div className="flex justify-between items-center mt-4">
+      {/* Precio del producto */}
       <span className="text-vete-primary font-black text-xl">${price.toLocaleString('es-UY')}</span>
+      {/* Botones de accion */}
       <div className="flex gap-2">
-        <MessageCircle className="text-green-500 fill-green-500 cursor-pointer" />
+          {/* Boton de whatsapp */}
+                {/* /images/branding/LogoWhtSapp.svg */}
+          <img src="/images/branding/LogoWhtSapp.svg" alt="WhatsApp" className="w-8 h-8" />
+          {/* <MessageCircle className="text-green-500 fill-green-500 cursor-pointer" /> */}
         <div className="bg-vete-primary p-2 rounded-full cursor-pointer">
+          {/* Boton de carrito */}
           <ShoppingCart size={16} className="text-white" />
         </div>
       </div>
