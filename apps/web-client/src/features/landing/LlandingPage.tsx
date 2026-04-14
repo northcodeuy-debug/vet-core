@@ -674,7 +674,8 @@ const MapsSection = () => {
 export default function LandingPage() {
   return (
     /* Agregamos overflow-x-hidden para evitar la franja lateral */
-    <div className="bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative">
+                   // bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative border-0 m-0 p-0 
+    <div className="bg-vete-dark min-h-screen font-sans text-white overflow-x-hidden w-full relative border-0 m-0 p-0">
       <Header />
       <main>
         <HeroSection />

@@ -1,5 +1,8 @@
 /* /apps/web-client/src/index.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,4 +12,6 @@ html, body, #root {
   height: 100%;
   margin: 0;
   background-color: #212121; /* El fondo oscuro que querías */
+  font-family: 'Inter', sans-serif;
+  @apply bg-[#212121] text-white antialiased; /*<!> Esto no tengo claro que hace lo coloque por el tema de la fuete */
 }
