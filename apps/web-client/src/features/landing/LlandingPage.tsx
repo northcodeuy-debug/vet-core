@@ -116,7 +116,18 @@ const ProductsSection = ({bgColor}: {bgColor: string}) => {
         <div key={idx} className="mb-20">
           <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
             <h3 className="text-5xl font-black text-vete-primary leading-none">{cat.title}</h3>
-            <button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>
+            
+            {/* <!> Version anterior */}
+            {/*<button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>*/}
+
+            <button className="text-vete-primary font-bold hover:underline flex items-center gap-2">
+              {/* Oculto en móvil, visible a partir de tamaño 'sm' (640px) */}
+              <span className="hidden sm:inline">Ver catálogo completo</span> 
+              <span>➔</span>
+            </button>
+            
+          
+          
           </div>
 
           {/* 
@@ -125,8 +136,10 @@ const ProductsSection = ({bgColor}: {bgColor: string}) => {
               sm:grid-cols-2: Tablet pequeña (2 tarjetas)
               lg:grid-cols-3: Tablet grande / Monitor pequeño (3 tarjetas)
               xl:grid-cols-4: Monitor normal (4 tarjetas)
+              2xl:grid-cols-5: Monitor grande (5 tarjetas)
           */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 gap-x-6 justify-items-center">
+                      
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-10 gap-x-4 md:gap-x-6 justify-items-center mx-auto">
             {cat.data.map(p => (
               <ProductCard
                 key={p.id}
