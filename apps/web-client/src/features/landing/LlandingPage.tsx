@@ -3,18 +3,19 @@
 
 import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
-import OndaInferior from '../../assets/branding/terminacionInferior.svg?react'; // Importar SVG Silueta : Fijate el "?react" al final
+import { SectionDivider } from '../../components/SectionDivider';
+// import OndaInferior from '../../assets/branding/terminacionInferior.svg?react'; //<!> para sacar Importar SVG Silueta : Fijate el "?react" al final
 
 
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 
 // <!DMI> Header de la web
-const Header = () => {
+const Header = ({bgColor}: {bgColor: string}) => {
   return (
     // Cambiamos px-16 por px-6 en móvil y md:px-16 en escritorio
 
-    <header className="bg-vete-secondary px-6 md:px-16 py-8 flex justify-between items-center w-full max-w-full overflow-hidden">
+    <header className={`${bgColor} px-6 md:px-16 py-8 flex justify-between items-center w-full max-w-full overflow-hidden`}>
       <div className="flex items-center gap-2 font-black text-xl">
         <img src="/logo.png" className="w-10 shrink-0" alt="Logo" />
 
@@ -46,19 +47,21 @@ const Header = () => {
 };
 
 // <!DMI> Seccion Principal de la web  Compuesto de 2 div uno con el texto y otro 
+// bgColor: string -> Color de fondo de la seccion
+
 // <!>  En la version desktop queda muy vasio queda todo al medio y no queda bien abria que plantear
 // agrandar la letar o algo y que la imagen el limite sea mas grande NO quea bien en resoluiones grandes 
 // Estaria bueno agregar animacion de 3 fotos para la version grande para que me jore el contenido 
-
-const HeroSection = () => {
+// 
+const HeroSection = ({bgColor}: {bgColor: string}) => {
   return (
     /* 
       1. Agregamos un wrapper (div) o usamos la sección como contenedor.
       2. 'max-w-[1200px]' limita el crecimiento en pantallas ultra-anchas.
       3. 'mx-auto' centra todo el bloque horizontalmente.
     */
-    <section className="relative w-full bg-[#000000] pb-32"> 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10 relative z-10">
+    <section className={`relative w-full ${bgColor}`}> 
+      <div className=" max-w-[1200px] mx-auto px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10 relative z-10">
         
         {/* Lado del Texto: Limitamos el ancho para que no se estire de más */}
         <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
@@ -87,17 +90,6 @@ const HeroSection = () => {
 
       </div>
 
-
-      {/* 2. Uso del SVG como Componente */}
-      <div className="absolute bottom-0 left-0 w-full leading-none z-0">
-        <OndaInferior 
-          className="w-full h-[50px] md:h-[100px] text-vete-soft" 
-          // Al usar 'text-vete-soft', el SVG tomará ese color gracias a 'currentColor'
-          preserveAspectRatio="none"
-        />
-      </div>
-
-
     </section>
   )
 };
@@ -107,9 +99,9 @@ const HeroSection = () => {
 
 // <!DMI> Seccion Productos donde estan las tarjetas de los productos  
 
-const ProductsSection = () => {
+const ProductsSection = ({bgColor}: {bgColor: string}) => {
   return (
-    <section className="px-6 md:px-16 py-20 bg-white/5 mt-10">
+    <section className={`${bgColor} px-6 md:px-16 py-20  mt-10`}>
       {/* text-white */}
       <h2 className="text-4xl font-black mb-12 italic">
         Lista de <span className="text-vete-primary">Productos</span>
@@ -153,7 +145,7 @@ const ProductsSection = () => {
 
 
 // Componente auxiliar para evitar repetir código en Misión, Visión y Valores
-const InfoSection = ({ title, children, image, reversed = false }: { title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
+const InfoSection = ({title, children, image, reversed = false }: {title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
   <section className={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 py-20 px-16`}>
     <div className="w-full md:w-1/2 space-y-6">
       <h2 className="text-5xl font-black text-vete-primary italic">{title}</h2>
@@ -171,9 +163,9 @@ const InfoSection = ({ title, children, image, reversed = false }: { title: stri
   </section>
 );
 
-const AboutSection = () => {
+const AboutSection = ({bgColor}: {bgColor: string}) => {
   return (
-    <div className="bg-white/5">
+    <div className={`${bgColor}`}>
       {/* Misión */}
       <InfoSection
         title="Misión"
@@ -240,140 +232,15 @@ const AboutSection = () => {
   );
 };
 
-// const Footer = () => {
-//   return (
-//     <footer className="main-footer">
-//       <div className="footer-container">
-
-//         {/* Sección del Logo */}
-//         <div className="flex items-center gap-2 font-black text-xl">
-//             <img src="/logo.png" className="w-10" /> VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
-//         </div>
-
-//         {/* Sección de Iconos */}
-//         <div className="footer-icons">
-
-//         </div>
-//       </div>
-//     </footer>
-//   );
-
-
-// };
-
-
-
-
-
-
-
-
-// export const Footer = () => {
-//   return (
-//     <>
-//       {/* 1. IMAGEN DE FONDO (PASTO) 
-//           La ponemos 'fixed' para que siempre esté al fondo del navegador, 
-//           pero con un z-index bajo para que no tape el contenido. */}
-//       <div className="fixed bottom-0 left-0 w-full h-20 pointer-events-none z-0 opacity-40">
-//         <img
-//           src="/images/branding/NavPasto.png"
-//           alt="Nav Pasto"
-//           className="w-full h-full object-cover object-top"
-//         />
-
-//           {/* SECCIÓN C: Redes Sociales */}
-//           <div className="space-y-4">
-//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
-//             <div className="flex gap-4">
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <Instagram size={24} className="group-hover:text-white" />
-//               </a>
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <Facebook size={24} className="group-hover:text-white" />
-//               </a>
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <MapPin size={24} className="group-hover:text-white" />
-//               </a>
-//             </div>
-//           </div>  
-
-
-//       </div>
-
-
-//       {/* 2. EL FOOTER REAL
-//           Usamos 'relative' y 'z-10' para que flote por encima del pasto.
-//           'backdrop-blur' hace que el pasto se vea suave por detrás. */}
-//       <footer className="relative z-10 bg-vete-dark/90 backdrop-blur-sm border-t border-white/10 px-6 md:px-16 py-12 mt-20">
-//         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-
-//           {/* SECCIÓN A: Logo y Eslogan */}
-//           <div className="space-y-4">
-//             <div className="flex items-center gap-2 font-black text-xl text-white">
-//               <img src="/logo.png" className="w-10" alt="Logo" />
-//               VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
-//             </div>
-//             <p className="text-gray-400 text-sm max-w-xs">
-//               Comprometidos con la salud de tus animales de producción y el bienestar de tus mascotas en Salto.
-//             </p>
-//           </div>
-
-//           {/* SECCIÓN B: Contacto Rápido */}
-//           <div className="space-y-4">
-//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Contacto</h4>
-//             <ul className="space-y-3 text-gray-300">
-//               <li className="flex items-center gap-3 hover:text-white transition">
-//                 <Phone size={18} className="text-vete-primary" />
-//                 <span>092 444 510</span>
-//               </li>
-//               <li className="flex items-center gap-3 hover:text-white transition">
-//                 <Mail size={18} className="text-vete-primary" />
-//                 <span>contacto@vete-beltramelli.com</span>
-//               </li>
-//               <li className="flex items-center gap-3 hover:text-white transition">
-//                 <MapPin size={18} className="text-vete-primary" />
-//                 <span>Salto, Uruguay</span>
-//               </li>
-//             </ul>
-//           </div>
-
-//           {/* SECCIÓN C: Redes Sociales */}
-//           <div className="space-y-4">
-//             <h4 className="text-vete-primary font-bold uppercase tracking-widest text-sm">Seguinos</h4>
-//             <div className="flex gap-4">
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <Instagram size={24} className="group-hover:text-white" />
-//               </a>
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <Facebook size={24} className="group-hover:text-white" />
-//               </a>
-//               <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-vete-primary transition-all group">
-//                 <MapPin size={24} className="group-hover:text-white" />
-//               </a>
-//             </div>
-//           </div>
-
-//         </div>
-
-//         {/* Créditos finales */}
-//         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-//           <p>© 2024 Veterinaria Beltramelli - Todos los derechos reservados.</p>
-//           <p className="tracking-widest uppercase opacity-50">Infraestructura por NorthCode</p>
-//         </div>
-//       </footer>
-//     </>
-//   );
-// };
-
-
-
-export const Footer = () => {
+// <!DMI> Pie de la web en este tien la animaion de pato y ademas el pie debajo 
+// bgColor: string - Color de fondo del footer  
+export const Footer = ({bgColor}: {bgColor: string}) => {
   return (
     <>
       {/* 1. BARRA FLOTANTE DE PASTO + REDES SOCIALES
           Esta barra siempre está al fondo mientras haces scroll.
       */}
-      <div className="fixed bottom-0 left-0 w-full h-24 z-20 flex flex-col items-center justify-end pb-4">
+      <div className={`fixed bottom-0 left-0 w-full h-24 z-20 flex flex-col items-center justify-end pb-4`}>
         {/* Imagen del pasto (Fondo de la barra flotante) */}
         <img
           src="/images/branding/NavPasto.png"
@@ -403,7 +270,7 @@ export const Footer = () => {
       {/* 2. EL FOOTER REAL (El que aparece al final de la página)
           Tiene un z-index de 40 para "tapar" la barra flotante cuando llegas al final.
       */}
-      <footer className="relative z-40 bg-vete-dark border-t border-white/10 px-6 md:px-16 py-12 mt-40 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <footer className={`${bgColor} relative z-40 border-t border-white/10 px-6 md:px-16 py-12 mt-40 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]`}>
         {/* text-white */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
 
@@ -443,9 +310,10 @@ export const Footer = () => {
 
 
 // <!DMI> Seccion Mapas
-const MapsSection = () => {
+// bgColor: string - Color de fondo de la sección
+const MapsSection = ({bgColor}: {bgColor: string}) => {
   return (
-    <section className="px-6 md:px-16 py-20 ">
+    <section className={`${bgColor} px-6 md:px-16 py-20 `}>
       {/* Contenedor Principal con fondo suavizado */}
       <div className="max-w-7xl mx-auto bg-vete-soft rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row gap-12 items-center">
 
@@ -532,14 +400,33 @@ export default function LandingPage() {
   return (
     /* Agregamos overflow-x-hidden para evitar la franja lateral */
     <div className="bg-vete-dark min-h-screen font-sans text-vete-text-light overflow-x-hidden w-full relative border-0 m-0 p-0">
-      <Header />    
+      <Header bgColor='bg-vete-secondary' />    
       <main>
-        <HeroSection />
-        <ProductsSection />
-        <AboutSection />
-        <MapsSection />
+        <HeroSection bgColor='bg-vete-secondary'/>
+
+        {/* 2. EL DIVISOR MÁGICO */}
+        {/* El fondo del contenedor es negro, y la onda es verde oscuro */}
+        <SectionDivider 
+          topColor="bg-vete-dark" 
+          bottomColor="text-vete-secondary" 
+        />
+        <ProductsSection bgColor='bg-vete-dark'/>
+        
+        <SectionDivider 
+          topColor="bg-vete-secondary" 
+          bottomColor="text-vete-dark" 
+        />
+
+        <AboutSection bgColor='bg-vete-secondary'/>
+
+        <SectionDivider 
+          topColor="bg-vete-dark" 
+          bottomColor="text-vete-secondary" 
+        />
+        
+        <MapsSection bgColor='bg-vete-dark'/>
       </main>
-      <Footer />
+      <Footer bgColor='bg-vete-dark'/>
     </div>
   )
 };

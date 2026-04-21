@@ -22,9 +22,9 @@ export default {
           bg: '#000000', // <!> Esto croe que no va no se donde ase algo 
           // Colores para la web
           primary: '#275D9E',    // Verde claro (Ahora es azul según tu hex)
-          secondary: '#AACDAB',  // Color Secundario para mesclar 
-          dark:'#DBECD5',        // Color fondo (Ahora es verde fuerte)
-          soft: 'rgba(35, 167, 97, 0.5)', // Fondo tarjetas
+          secondary: '#DBECD5',  // Color Secundario para mesclar 
+          dark:'#FDFDF1',        // Color fondo (Ahora es verde fuerte)
+          soft: '#76a165ff', // Fondo tarjetas
           accent: '#914122',     // Marrón footer   
           'text-light': '#000000' // La malloria de texto
         }     
