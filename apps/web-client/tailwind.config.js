@@ -15,22 +15,33 @@ export default {
       },           
       colors: {
         vete: {
+          // Paleta 2
+          //\dark: '#1b4332', //Color Fonod
+
           // Por lo que se es para el menu cartel de la web
-          bg: '#F1F7F4',
+          bg: '#000000', // <!> Esto croe que no va no se donde ase algo 
           // Colores para la web
-          primary: '#aaca50',    // Verde claro
-          dark: '#1b4332',       // Verde oscuro (fondo)
-          soft: '#D8E7DF',       // Fondo tarjetas
-          accent: '#914122',     // Marrón footer        
-        }
+          primary: '#275D9E',    // Verde claro (Ahora es azul según tu hex)
+          secondary: '#AACDAB',  // Color Secundario para mesclar 
+          dark:'#DBECD5',        // Color fondo (Ahora es verde fuerte)
+          soft: 'rgba(35, 167, 97, 0.5)', // Fondo tarjetas
+          accent: '#914122',     // Marrón footer   
+          'text-light': '#000000' // La malloria de texto
+        }     
       },
+      // AQUÍ TRASLADAMOS FIGMA A TAILWIND (Debe estar DENTRO de extend):
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+      },
+      fontSize: {
+        // Formato:['font-size', { lineHeight: 'line-height' }]
+        'vete-h1':['72px', { lineHeight: '1.1' }],        // Título principal
+        'vete-h2':['36px', { lineHeight: '1.2' }],        // Subtítulos
+        'vete-h3':['24px', { lineHeight: '1.3' }],        // Títulos de tarjetas
+        'vete-body': ['18px', { lineHeight: '29.25px' }],  // El párrafo de tu captura
+        'vete-small': ['14px', { lineHeight: '20px' }]    // Textos chicos
       }
-    },
-  },
-  plugins: [],
-}
-
-
-// tailwind.config.js
+    } // <--- Cierra extend
+  }, // <--- Cierra theme
+  plugins: []
+} // <--- Cierra export default
