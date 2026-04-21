@@ -273,9 +273,8 @@ export const Footer = ({bgColor}: {bgColor: string}) => {
           </a>
         </div>
 
-        {/* <p className="relative z-30 text-[10px] text-white/40 font-bold uppercase tracking-widest pointer-events-none">
-          Salto, Uruguay
-        </p> */}
+
+        
 
       </div>
 
