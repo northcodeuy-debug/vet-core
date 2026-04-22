@@ -4,7 +4,7 @@
 import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
 import { SectionDivider } from '../../components/SectionDivider';
-// import OndaInferior from '../../assets/branding/terminacionInferior.svg?react'; //<!> para sacar Importar SVG Silueta : Fijate el "?react" al final
+import WhatSapp_Icon from '../../assets/branding/WhatSapp_Cuadrado.svg?react'; 
 
 
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
@@ -250,33 +250,89 @@ const AboutSection = ({bgColor}: {bgColor: string}) => {
 export const Footer = ({bgColor}: {bgColor: string}) => {
   return (
     <>
-      {/* 1. BARRA FLOTANTE DE PASTO + REDES SOCIALES
-          Esta barra siempre está al fondo mientras haces scroll.
-      */}
-      <div className={`fixed bottom-0 left-0 w-full h-24 z-20 flex flex-col items-center justify-end pb-4`}>
-        {/* Imagen del pasto (Fondo de la barra flotante) */}
+     
+
+
+      {/* 1. BARRA FLOTANTE DE PASTO + BOTONES */}
+      <div className={`fixed bottom-0 left-0 w-full h-24 z-20 flex items-end justify-between px-4 md:px-16 pb-4 pointer-events-none`}>
+        
+        {/* Imagen del pasto */}
         <img
           src="/images/branding/NavPasto.png"
           alt="Nav Pasto"
           className="absolute bottom-0 left-0 w-full h-full object-cover object-top opacity-60 pointer-events-none z-0"
         />
 
-        {/* Iconos de Redes Sociales sobre el pasto flotante */}
-        <div className="relative z-30 flex gap-6 mb-2">
-          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
-            {/* <!> text-white */}
-            <Instagram size={20} className=" group-hover:scale-110" />
+        {/* =========================================
+            LADO IZQUIERDO: ADMINISTRACIÓN (Verde oscuro) 
+            ========================================= */}
+        <div className="relative z-30 pointer-events-auto">
+          {/* group, w-48 y h-12 son la clave para que el botón no salte al cambiar el texto */}
+          <a href="https://wa.me/59892444510" target="_blank" rel="noreferrer" 
+            className="group relative flex items-center justify-start px-4 gap-2 bg-vete-dark/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-vete-primary">
+            
+            <WhatSapp_Icon 
+              className="w-6 h-6 shrink-0 text-white z-10" 
+              preserveAspectRatio="none"
+            />
+          
+            {/* Texto que desaparece */}
+            <span className="absolute left-12 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+              Administración
+            </span>
+            
+            {/* Texto que aparece */}
+            <span className="absolute left-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              092 444 510
+            </span>
           </a>
-          <a href="#" className="p-2 bg-vete-dark/50 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg group">
-            {/* <!> text-white */}
-            <Facebook size={20} className=" group-hover:scale-110" />
+        </div>
+  
+        {/* =========================================
+            CENTRO: REDES SOCIALES 
+            ========================================= */}
+        {/* absolute left-1/2 lo clava exactamente en el medio de la pantalla */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-4 pointer-events-auto">
+          <a href="#" className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
+            <Facebook size={20} />
+          </a>
+          <a href="#" className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
+            <Instagram size={20} />
           </a>
         </div>
 
-
-        
+        {/* =========================================
+            LADO DERECHO: EMERGENCIA 24HS (Rojo) 
+            ========================================= */}
+        <div className="relative z-30 pointer-events-auto">
+          <a href="https://wa.me/59899111222" target="_blank" rel="noreferrer" 
+             className="group relative flex flex-row-reverse items-center justify-start px-4 gap-2 bg-red-600/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-red-500 animate-pulse hover:animate-none">
+            
+            <WhatSapp_Icon 
+              className="w-6 h-6 shrink-0 text-white z-10" 
+              preserveAspectRatio="none"
+            />
+                           
+            {/* Texto que desaparece. Note que es right-12 en vez de left-12 porque invertimos la fila */}
+            <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+              Emergencia
+            </span>
+            
+            {/* Texto que aparece */}
+            <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              099 111 222
+            </span>
+          </a>
+        </div>
 
       </div>
+
+
+
+
+
+
+
 
 
       {/* 2. EL FOOTER REAL (El que aparece al final de la página)
