@@ -269,20 +269,20 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
         <div className="relative z-30 pointer-events-auto">
           {/* group, w-40 y h-12 son la clave para que el botón no salte al cambiar el texto */}
           <a href="https://wa.me/59892444510" target="_blank" rel="noreferrer"
-            className="group relative flex items-center justify-start px-3 gap-2 bg-vete-primary backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-40 h-12 overflow-hidden hover:bg-vete-primary/60">
+            className="flex px-3 w-40 h-10 group relative  items-center justify-start  gap-2 bg-vete-primary backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20  overflow-hidden hover:bg-vete-primary/60">
 
             <WhatSapp_Icon
-              className="w-6 h-6 shrink-0 text-white z-10"
+              className="w-5 h-5 shrink-0 text-white z-10 text-vete-secondary"
               preserveAspectRatio="none"
             />
 
             {/* Texto que desaparece */}
-            <span className="absolute left-10 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+            <span className="absolute left-11 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
               Administración
             </span>
 
             {/* Texto que aparece */}
-            <span className="absolute left-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            <span className="absolute left-11 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               092 444 510
             </span>
           </a>
@@ -306,7 +306,7 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
             ========================================= */}
         <div className="relative z-30 pointer-events-auto">
           <a href="https://wa.me/59899111222" target="_blank" rel="noreferrer"                                                                                                                                                // animate-pulse hover:animate-none       
-            className="group relative flex flex-row-reverse items-center justify-start px-4 gap-2 bg-red-600/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-red-500">
+            className="flex-row-reverse w-40 h-10 px-3  group relative flex  items-center justify-start gap-2 bg-red-600/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 overflow-hidden hover:bg-red-500">
 
             <WhatSapp_Icon
               className="w-6 h-6 shrink-0 text-white z-10"
@@ -314,25 +314,18 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
             />
 
             {/* Texto que desaparece. Note que es right-12 en vez de left-12 porque invertimos la fila */}
-            <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+            <span className="absolute right-11 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
               Emergencia
             </span>
 
             {/* Texto que aparece */}
-            <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            <span className="absolute right-11 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               099 111 222
             </span>
           </a>
         </div>
 
       </div>
-
-
-
-
-
-
-
 
 
       {/* 2. EL FOOTER REAL (El que aparece al final de la página)
