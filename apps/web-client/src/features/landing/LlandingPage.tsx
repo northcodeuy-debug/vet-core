@@ -4,14 +4,14 @@
 import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
 import { SectionDivider } from '../../components/SectionDivider';
-import WhatSapp_Icon from '../../assets/branding/WhatSapp_Cuadrado.svg?react'; 
+import WhatSapp_Icon from '../../assets/branding/WhatSapp_Cuadrado.svg?react';
 
 
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 
 // <!DMI> Header de la web
-const Header = ({bgColor}: {bgColor: string}) => {
+const Header = ({ bgColor }: { bgColor: string }) => {
   return (
     // Cambiamos px-16 por px-6 en móvil y md:px-16 en escritorio
 
@@ -23,8 +23,8 @@ const Header = ({bgColor}: {bgColor: string}) => {
            hidden: oculta el texto por defecto (móvil)
            md:inline: lo muestra como inline a partir de tablets/PC (768px)
         */}
-        
-          {/* <!> Agregar el tamanio de figma por variable telwind.config.js  text-white*/}
+
+        {/* <!> Agregar el tamanio de figma por variable telwind.config.js  text-white*/}
         <span className="hidden tablet-vete:inline whitespace-nowrap ">
           VETERINARIA BELTRAMELLI<span className="text-vete-primary">.</span>
         </span>
@@ -53,37 +53,37 @@ const Header = ({bgColor}: {bgColor: string}) => {
 // agrandar la letar o algo y que la imagen el limite sea mas grande NO quea bien en resoluiones grandes 
 // Estaria bueno agregar animacion de 3 fotos para la version grande para que me jore el contenido 
 // 
-const HeroSection = ({bgColor}: {bgColor: string}) => {
+const HeroSection = ({ bgColor }: { bgColor: string }) => {
   return (
     /* 
       1. Agregamos un wrapper (div) o usamos la sección como contenedor.
       2. 'max-w-[1200px]' limita el crecimiento en pantallas ultra-anchas.
       3. 'mx-auto' centra todo el bloque horizontalmente.
     */
-    <section className={`relative w-full ${bgColor}`}> 
+    <section className={`relative w-full ${bgColor}`}>
       <div className=" max-w-[1200px] mx-auto px-6 md:px-16 py-12 flex flex-col md:flex-row items-center gap-10 relative z-10">
-        
+
         {/* Lado del Texto: Limitamos el ancho para que no se estire de más */}
         <div className="w-full desktop-vete:w-1/2 text-center desktop-vete:text-left flex flex-col items-center desktop-vete:items-start">
           <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 text-vete-primary">
             <span className="whitespace-nowrap">Cuidamos <span className='text-vete-text-light'>a</span></span> <br />
             <span className="text-vete-text-light">quienes</span> amas
           </h1>
-          
+
           {/* text-lg  _ text-white*/}
           <p className="text-vete-body opacity-90 max-w-md leading-relaxed ">
             Tu mascota merece la mejor atención médica en un ambiente cálido y
-            profesional. Contamos con especialistas comprometidos con el bienestar 
-            integral de tus compañeros, brindando cuidado, dedicación y confianza 
+            profesional. Contamos con especialistas comprometidos con el bienestar
+            integral de tus compañeros, brindando cuidado, dedicación y confianza
             en cada etapa de su vida.
           </p>
         </div>
 
         {/* Lado de la Imagen: Controlamos el tamaño máximo para que no sea 'gigante' */}
         <div className="hidden desktop-vete:flex w-full md:w-1/2 justify-center desktop-vete:justify-end relative">
-          <img 
+          <img
             src="/images/branding/HeroSection.png"
-            className="rounded-[3rem] shadow-2xl object-cover max-w-full h-auto lg:max-h-[1100px]" 
+            className="rounded-[3rem] shadow-2xl object-cover max-w-full h-auto lg:max-h-[1100px]"
             alt="Mascotas"
           />
         </div>
@@ -99,7 +99,7 @@ const HeroSection = ({bgColor}: {bgColor: string}) => {
 
 // <!DMI> Seccion Productos donde estan las tarjetas de los productos  
 
-const ProductsSection = ({bgColor}: {bgColor: string}) => {
+const ProductsSection = ({ bgColor }: { bgColor: string }) => {
   return (
     <section className={`${bgColor} px-6 md:px-16 py-20  mt-10`}>
       {/* text-white */}
@@ -116,18 +116,18 @@ const ProductsSection = ({bgColor}: {bgColor: string}) => {
         <div key={idx} className="mb-20">
           <div className="flex justify-between items-end mb-8 border-b border-vete-primary/30 pb-4">
             <h3 className="text-5xl font-black text-vete-primary leading-none">{cat.title}</h3>
-            
+
             {/* <!> Version anterior */}
             {/*<button className="text-vete-primary font-bold hover:underline">Ver catálogo completo ➔</button>*/}
 
             <button className="text-vete-primary font-bold hover:underline flex items-center gap-2">
               {/* Oculto en móvil, visible a partir de tamaño 'sm' (640px) */}
-              <span className="hidden sm:inline">Ver catálogo completo</span> 
+              <span className="hidden sm:inline">Ver catálogo completo</span>
               <span>➔</span>
             </button>
-            
-          
-          
+
+
+
           </div>
 
           {/* 
@@ -138,7 +138,7 @@ const ProductsSection = ({bgColor}: {bgColor: string}) => {
               xl:grid-cols-4: Monitor normal (4 tarjetas)
               2xl:grid-cols-5: Monitor grande (5 tarjetas)
           */}
-                      
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-10 gap-x-4 md:gap-x-6 justify-items-center mx-auto">
             {cat.data.map(p => (
               <ProductCard
@@ -158,7 +158,7 @@ const ProductsSection = ({bgColor}: {bgColor: string}) => {
 
 
 // Componente auxiliar para evitar repetir código en Misión, Visión y Valores
-const InfoSection = ({title, children, image, reversed = false }: {title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
+const InfoSection = ({ title, children, image, reversed = false }: { title: string, children: React.ReactNode, image: string, reversed?: boolean }) => (
   <section className={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 py-20 px-16`}>
     <div className="w-full md:w-1/2 space-y-6">
       <h2 className="text-5xl font-black text-vete-primary italic">{title}</h2>
@@ -176,7 +176,7 @@ const InfoSection = ({title, children, image, reversed = false }: {title: string
   </section>
 );
 
-const AboutSection = ({bgColor}: {bgColor: string}) => {
+const AboutSection = ({ bgColor }: { bgColor: string }) => {
   return (
     <div className={`${bgColor}`}>
       {/* Misión */}
@@ -247,15 +247,15 @@ const AboutSection = ({bgColor}: {bgColor: string}) => {
 
 // <!DMI> Pie de la web en este tien la animaion de pato y ademas el pie debajo 
 // bgColor: string - Color de fondo del footer  
-export const Footer = ({bgColor}: {bgColor: string}) => {
+export const Footer = ({ bgColor }: { bgColor: string }) => {
   return (
     <>
-     
+
 
 
       {/* 1. BARRA FLOTANTE DE PASTO + BOTONES */}
       <div className={`fixed bottom-0 left-0 w-full h-24 z-20 flex items-end justify-between px-4 md:px-16 pb-4 pointer-events-none`}>
-        
+
         {/* Imagen del pasto */}
         <img
           src="/images/branding/NavPasto.png"
@@ -267,27 +267,27 @@ export const Footer = ({bgColor}: {bgColor: string}) => {
             LADO IZQUIERDO: ADMINISTRACIÓN (Verde oscuro) 
             ========================================= */}
         <div className="relative z-30 pointer-events-auto">
-          {/* group, w-48 y h-12 son la clave para que el botón no salte al cambiar el texto */}
-          <a href="https://wa.me/59892444510" target="_blank" rel="noreferrer" 
-            className="group relative flex items-center justify-start px-4 gap-2 bg-vete-dark/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-vete-primary">
-            
-            <WhatSapp_Icon 
-              className="w-6 h-6 shrink-0 text-white z-10" 
+          {/* group, w-40 y h-12 son la clave para que el botón no salte al cambiar el texto */}
+          <a href="https://wa.me/59892444510" target="_blank" rel="noreferrer"
+            className="group relative flex items-center justify-start px-3 gap-2 bg-vete-primary backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-40 h-12 overflow-hidden hover:bg-vete-primary/60">
+
+            <WhatSapp_Icon
+              className="w-6 h-6 shrink-0 text-white z-10"
               preserveAspectRatio="none"
             />
-          
+
             {/* Texto que desaparece */}
-            <span className="absolute left-12 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+            <span className="absolute left-10 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
               Administración
             </span>
-            
+
             {/* Texto que aparece */}
             <span className="absolute left-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               092 444 510
             </span>
           </a>
         </div>
-  
+
         {/* =========================================
             CENTRO: REDES SOCIALES 
             ========================================= */}
@@ -305,19 +305,19 @@ export const Footer = ({bgColor}: {bgColor: string}) => {
             LADO DERECHO: EMERGENCIA 24HS (Rojo) 
             ========================================= */}
         <div className="relative z-30 pointer-events-auto">
-          <a href="https://wa.me/59899111222" target="_blank" rel="noreferrer" 
-             className="group relative flex flex-row-reverse items-center justify-start px-4 gap-2 bg-red-600/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-red-500 animate-pulse hover:animate-none">
-            
-            <WhatSapp_Icon 
-              className="w-6 h-6 shrink-0 text-white z-10" 
+          <a href="https://wa.me/59899111222" target="_blank" rel="noreferrer"                                                                                                                                                // animate-pulse hover:animate-none       
+            className="group relative flex flex-row-reverse items-center justify-start px-4 gap-2 bg-red-600/90 backdrop-blur-md rounded-full text-white shadow-lg transition-all duration-300 border border-white/20 w-48 h-12 overflow-hidden hover:bg-red-500">
+
+            <WhatSapp_Icon
+              className="w-6 h-6 shrink-0 text-white z-10"
               preserveAspectRatio="none"
             />
-                           
+
             {/* Texto que desaparece. Note que es right-12 en vez de left-12 porque invertimos la fila */}
             <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-100 group-hover:opacity-0">
               Emergencia
             </span>
-            
+
             {/* Texto que aparece */}
             <span className="absolute right-12 font-bold text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               099 111 222
@@ -379,7 +379,7 @@ export const Footer = ({bgColor}: {bgColor: string}) => {
 
 // <!DMI> Seccion Mapas
 // bgColor: string - Color de fondo de la sección
-const MapsSection = ({bgColor}: {bgColor: string}) => {
+const MapsSection = ({ bgColor }: { bgColor: string }) => {
   return (
     <section className={`${bgColor} px-6 md:px-16 py-20 `}>
       {/* Contenedor Principal con fondo suavizado */}
@@ -427,7 +427,7 @@ const MapsSection = ({bgColor}: {bgColor: string}) => {
             <a href="#" className="bg-white/60 p-3 rounded-full text-vete-header hover:bg-vete-primary transition-all shadow-sm">
               <Instagram size={24} />
             </a>
-              {/* hover:text-white */}
+            {/* hover:text-white */}
             <a href="#" className="bg-white/60 p-3 rounded-full text-vete-header hover:bg-vete-primary transition-all shadow-sm">
               <Facebook size={24} />
             </a>
@@ -468,33 +468,33 @@ export default function LandingPage() {
   return (
     /* Agregamos overflow-x-hidden para evitar la franja lateral */
     <div className="bg-vete-dark min-h-screen font-sans text-vete-text-light overflow-x-hidden w-full relative border-0 m-0 p-0">
-      <Header bgColor='bg-vete-secondary' />    
+      <Header bgColor='bg-vete-secondary' />
       <main>
-        <HeroSection bgColor='bg-vete-secondary'/>
+        <HeroSection bgColor='bg-vete-secondary' />
 
         {/* 2. EL DIVISOR MÁGICO */}
         {/* El fondo del contenedor es negro, y la onda es verde oscuro */}
-        <SectionDivider 
-          topColor="bg-vete-dark" 
-          bottomColor="text-vete-secondary" 
+        <SectionDivider
+          topColor="bg-vete-dark"
+          bottomColor="text-vete-secondary"
         />
-        <ProductsSection bgColor='bg-vete-dark'/>
-        
-        <SectionDivider 
-          topColor="bg-vete-secondary" 
-          bottomColor="text-vete-dark" 
+        <ProductsSection bgColor='bg-vete-dark' />
+
+        <SectionDivider
+          topColor="bg-vete-secondary"
+          bottomColor="text-vete-dark"
         />
 
-        <AboutSection bgColor='bg-vete-secondary'/>
+        <AboutSection bgColor='bg-vete-secondary' />
 
-        <SectionDivider 
-          topColor="bg-vete-dark" 
-          bottomColor="text-vete-secondary" 
+        <SectionDivider
+          topColor="bg-vete-dark"
+          bottomColor="text-vete-secondary"
         />
-        
-        <MapsSection bgColor='bg-vete-dark'/>
+
+        <MapsSection bgColor='bg-vete-dark' />
       </main>
-      <Footer bgColor='bg-vete-dark'/>
+      <Footer bgColor='bg-vete-dark' />
     </div>
   )
 };
