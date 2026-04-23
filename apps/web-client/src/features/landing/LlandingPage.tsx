@@ -5,7 +5,6 @@ import { ProductCard } from '../../components/ProductCard.tsx';
 import products from '../../data/productos.json';
 import { SectionDivider } from '../../components/SectionDivider';
 import { WhatsAppButton } from '../../components/WhatsAppButtonProps';
-import WhatSapp_Icon from '../../assets/branding/WhatSapp_Cuadrado.svg?react';
 
 
 import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
