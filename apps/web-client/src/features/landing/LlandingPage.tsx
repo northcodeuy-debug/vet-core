@@ -7,7 +7,7 @@ import { SectionDivider } from '../../components/SectionDivider';
 import { WhatsAppButton } from '../../components/WhatsAppButtonProps';
 
 
-import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
+import {Clock, Stethoscope,Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 
 // <!DMI> Header de la web
@@ -250,9 +250,6 @@ const AboutSection = ({ bgColor }: { bgColor: string }) => {
 export const Footer = ({ bgColor }: { bgColor: string }) => {
   return (
     <>
-
-
-
       {/* 1. BARRA FLOTANTE DE PASTO + BOTONES */}
       <div className={`fixed bottom-0 left-0 w-full h-24 z-20 flex items-end justify-between px-4 md:px-16 pb-4 pointer-events-none`}>
 
@@ -269,7 +266,7 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
         <WhatsAppButton
           label="Administración"
           phone="092 444 510"
-          bgColor="bg-vete-primary"
+          bgColor="bg-vete-tertiary"
         />
 
         {/* 
@@ -304,7 +301,7 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
 
         </div>
 
-        h
+        
         {/* =========================================
             LADO DERECHO: EMERGENCIA 24HS (Rojo) 
             ========================================= */}
@@ -358,80 +355,78 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
 
 
 
-
-// <!DMI> Seccion Mapas
-// bgColor: string - Color de fondo de la sección
 const MapsSection = ({ bgColor }: { bgColor: string }) => {
   return (
-    <section className={`${bgColor} px-6 md:px-16 py-20 `}>
-      {/* Contenedor Principal con fondo suavizado */}
+    <section className={`${bgColor} px-6 md:px-16 py-20`}>
       <div className="max-w-7xl mx-auto bg-vete-soft rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row gap-12 items-center">
 
-        {/* LADO IZQUIERDO: Información de contacto */}
+        {/* LADO IZQUIERDO: Información */}
         <div className="w-full lg:w-1/2 space-y-8">
           <div className="space-y-4">
-            <h3 className="text-4xl font-black text-vete-header leading-tight">
-              ¿Dónde estamos?
-            </h3>
-            <p className="text-vete-text text-lg opacity-80 max-w-sm">
-              Te esperamos en Salto con la mejor atención para tu mascota.
+            <h3 className="text-vete-primary text-4xl font-black  text-vete-header leading-tight italic">
+              ¿<span className='text-vete-text-light'> Dónde estamos</span>?
+            </h3>   {/* <!> text-vete-text Creo que no ase nada sacar   */}
+            <p className=" text-lg opacity-90 leading-relaxed">
+              Te esperamos en Salto con una <span className="text-vete-header  font-bold text-xl">instalación de primera</span>, 
+              equipada con sala de cirugía canina de vanguardia y atención especializada.
             </p>
           </div>
 
           {/* Bloques de Información */}
-          <div className="space-y-6">
-            {/* Dirección */}
-            <div className="flex items-center gap-4">
-              <div className="bg-white/60 p-3 rounded-2xl shadow-sm text-vete-primary">
+          <div className="grid grid-cols-1 gap-6">
+            
+            {/* Ubicación Geográfica */}
+            <div className="flex items-start gap-4">
+              <div className="bg-white/60 p-3 rounded-2xl shadow-sm text-vete-primary shrink-0 mt-1">
                 <MapPin size={24} />
               </div>
               <div>
                 <p className="font-bold text-vete-header text-lg">Salto, Uruguay</p>
-                <p className="text-vete-text opacity-70">Calle 1 N° 5657</p>
+                <p className="text-vete-text opacity-70">Barrio Volcán, Salto Uruguay</p>
               </div>
             </div>
 
-            {/* Teléfono */}
-            <div className="flex items-center gap-4">
-              <div className="bg-white/60 p-3 rounded-2xl shadow-sm text-vete-primary">
-                <Phone size={24} />
+            {/* Horarios Detallados */}
+            <div className="flex items-start gap-4">
+              <div className="bg-white/60 p-3 rounded-2xl shadow-sm text-vete-primary shrink-0 mt-1">
+                <Clock size={24} />
+              </div>
+              <div className="space-y-1">
+                <p className="font-bold text-vete-header text-lg">Horarios de Atención</p>
+                <div className="text-vete-text text-sm space-y-1 opacity-80 font-medium">
+                  <p>Lunes a Viernes: 08:00 – 20:00</p>
+                  <p>Sábados: 08:00 – 12:00</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Emergencias 24h - Resaltado */}
+            <div className="flex items-center gap-4 bg-vete-header/5 p-4 rounded-3xl border border-vete-header/10">
+              <div className="bg-red-500 p-3 rounded-2xl shadow-sm text-white shrink-0 animate-pulse">
+                <Stethoscope size={24} />
               </div>
               <div>
-                <p className="font-bold text-vete-header text-lg">092 444 510</p>
-                <p className="text-vete-text opacity-70">Lunes a Sábado 09:00 - 19:00</p>
+                <p className="font-bold text-red-600 text-lg uppercase tracking-tight">Emergencias 24 Horas</p>
+                <p className="text-vete-text text-sm opacity-70">Disponibles en todo momento para tu mascota</p>
               </div>
             </div>
           </div>
 
-          {/* Redes Sociales */}
-          <div className="flex gap-4 pt-4">
-            {/* <!> hover:text-white */}
-            <a href="#" className="bg-white/60 p-3 rounded-full text-vete-header hover:bg-vete-primary transition-all shadow-sm">
-              <Instagram size={24} />
-            </a>
-            {/* hover:text-white */}
-            <a href="#" className="bg-white/60 p-3 rounded-full text-vete-header hover:bg-vete-primary transition-all shadow-sm">
-              <Facebook size={24} />
-            </a>
-          </div>
+ 
         </div>
 
         {/* LADO DERECHO: Mapa */}
         <div className="w-full lg:w-1/2 relative h-[450px]">
-          {/* Badge Flotante sobre el mapa */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-vete-header/90 backdrop-blur-md px-6 py-3 rounded-2xl flex items-center gap-3 shadow-2xl border border-white/10">
             <div className="bg-vete-primary p-2 rounded-lg">
-              {/* <!> className="text-white */}
-              <MapPin size={20} />
+              <MapPin size={20} className="text-white" />
             </div>
-            {/* <!> text-white */}
-            <span className="font-bold whitespace-nowrap">Salto, Uruguay</span>
+            <span className="text-white font-bold whitespace-nowrap">Salto, Uruguay</span>
           </div>
 
-          {/* Iframe del Mapa */}
           <iframe
             title="Ubicación Veterinaria Beltramelli"
-            className="w-full h-full rounded-[2.5rem] shadow-inner grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+            className="w-full h-full rounded-[2.5rem] shadow-inner grayscale-[10%] hover:grayscale-0 transition-all duration-700"
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3405.8225168916!2d-57.906870999999995!3d-31.391457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIzJzI5LjMiUyA1N8KwNTQnMjQuNyJX!5e0!3m2!1sen!2suy!4v1774287344710!5m2!1sen!2suy"
             style={{ border: 0 }}
             allowFullScreen={true}
@@ -439,7 +434,6 @@ const MapsSection = ({ bgColor }: { bgColor: string }) => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-
       </div>
     </section>
   );
