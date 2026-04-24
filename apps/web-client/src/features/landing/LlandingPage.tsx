@@ -266,32 +266,52 @@ export const Footer = ({ bgColor }: { bgColor: string }) => {
         {/* =========================================
             LADO IZQUIERDO: ADMINISTRACIÓN (Azul oscuro) 
             ========================================= */}
-        <WhatsAppButton 
-          label="Administración" 
-          phone="092 444 510" 
-          bgColor="bg-vete-primary" 
+        <WhatsAppButton
+          label="Administración"
+          phone="092 444 510"
+          bgColor="bg-vete-primary"
         />
 
-        {/* =========================================
-            CENTRO: REDES SOCIALES 
-            ========================================= */}
+        {/* 
+          =============================================================================
+          BARRA CENTRAL: ACCESOS RÁPIDOS Y REDES
+          - Contenedor con Posicionamiento Absoluto (Centrado Horizontal)
+          - Efecto Backdrop Blur para legibilidad sobre el pasto animado
+          ============================================================================= 
+        */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
 
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-4 pointer-events-auto">
-          <a href="#" className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
+          {/* Link: Facebook */}
+          <a href="https://facebook.com" target="_blank" rel="noreferrer"
+            className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
             <Facebook size={20} />
           </a>
-          <a href="#" className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
+
+          {/* 
+            ACCESO A MAPA / UBICACIÓN
+            Se incrementa el tamaño (size={26}) y se destaca visualmente.
+          */}
+          <a href="#mapa"
+            className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/20 hover:bg-vete-primary transition-all shadow-xl text-white hover:scale-125 group">
+            <MapPin size={26} className="group-hover:text-white transition-colors" />
+          </a>
+
+          {/* Link: Instagram */}
+          <a href="https://instagram.com" target="_blank" rel="noreferrer"
+            className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-white/10 hover:bg-vete-primary transition-all shadow-lg text-white hover:scale-110">
             <Instagram size={20} />
           </a>
+
         </div>
 
+        h
         {/* =========================================
             LADO DERECHO: EMERGENCIA 24HS (Rojo) 
             ========================================= */}
-        <WhatsAppButton 
-          label="Emergencia" 
-          phone="099 111 222" 
-          bgColor="bg-red-600/90" 
+        <WhatsAppButton
+          label="Emergencia"
+          phone="099 111 222"
+          bgColor="bg-red-600/90"
           isReversed={true} // <--- Este parámetro activa el modo espejo
         />
 
